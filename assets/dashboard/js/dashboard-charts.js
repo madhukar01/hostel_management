@@ -1,8 +1,7 @@
-// Chart.js scripts
-// -- Set new default font family and font color to mimic Bootstrap's default styling
+// Chart.js
 Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#292b2c';
-// -- Area Chart Example
+// -- Area Chart
 var ctx = document.getElementById("myAreaChart");
 var myLineChart = new Chart(ctx, {
   type: 'line',
@@ -52,7 +51,7 @@ var myLineChart = new Chart(ctx, {
     }
   }
 });
-// -- Bar Chart Example
+// -- Bar Chart
 var ctx = document.getElementById("myBarChart");
 var myLineChart = new Chart(ctx, {
   type: 'bar',
@@ -94,7 +93,7 @@ var myLineChart = new Chart(ctx, {
     }
   }
 });
-// -- Pie Chart Example
+// -- Pie Chart
 var ctx = document.getElementById("myPieChart");
 var myPieChart = new Chart(ctx, {
   type: 'pie',
