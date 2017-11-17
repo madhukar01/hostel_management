@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(isset($_SESSION["usn"]))
+{
+	header("Location: dashboard.php");
+	die();
+}
+?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -16,7 +24,7 @@
 
 				<!-- Header -->
 					<header id="header" class="alt">
-						<h1><a href="index.html">PES Boys Hostel</a></h1>
+						<h1><a href="index.php">PES Boys Hostel</a></h1>
 						<nav>
 							<a href="#menu">Menu</a>
 						</nav>
@@ -27,35 +35,38 @@
 						<div class="inner">
 							<h2>Menu</h2>
 							<ul class="links">
-								<li><a href="index.html">Home</a></li>
+								<li><a href="index.php">Home</a></li>
 								<li><a href="#">Facilities</a></li>
 								<li><a href="#">Rules and Regulations</a></li>
 								<li><a href="#">Contact Us</a></li>
 								<li><button id="login_button">Log In</button></li>
 								<hr/>
-								<li><button id="signup_button" onclick="location.href='register.html';">Join Hostel</button></li>
+								<li><button id="signup_button" onclick="location.href='register.php';">Join Hostel</button></li>
 								<!--onclick="document.getElementById('login').style.display='block'"-->
 							</ul>
 							<a href="#" class="close">Close</a>
 						</div>
 					</nav>
-
+					<!--Login form-->
 					<div id="login" class="modal">
-						<form class="modal-content animate" action="#">
+						<form class="modal-content animate" id="login_form" >
 							<div class="imgcontainer">
 							<img src="images/pes.ico" alt="pes_logo" class="avatar">
 						  </div>
 						  <div class="container">
-							<input type="text" placeholder="Enter Username" name="uname" required>
-							<input type="password" placeholder="Enter Password" name="password" required> 
+							<input type="text" placeholder="Enter Username" name="usn" id="username" aria-describedby="usernameHelp" required >
+							<small id="usernameHelp" class="form-text text-muted"></small>
+							<input type="password" placeholder="Enter Password" name="password" id="password" aria-describedby="loginHelp" required> 
+							<small id="loginHelp" class="form-text text-muted"></small>
 							<div style="display: block; color: black;">
-									<label style="display: inline-block;">Student<input type="radio" name="user_type" value="Student" checked/></label>
-									<label style="display: inline-block;">Parent<input type="radio" name="user_type" value="Parent" /></label>
-									<label style="display: inline-block;">Staff<input type="radio" name="user_type" value="Staff" /></label>
+									<label style="display: inline-block;">Student<input type="radio" name="user_type" value="student" checked/></label>
+									<label style="display: inline-block;">Parent<input type="radio" name="user_type" value="parent" /></label>
+									<label style="display: inline-block;">Staff<input type="radio" name="user_type" value="staff" /></label>
 							</div>
-							<button class="button small" type="submit">Login</button>
+							<button class="button small" id="submit_button">Login</button>
 							<button class="button small cancelbtn" type="button" onclick="document.getElementById('login').style.display='none'">Cancel</button>
-						  </div>
+							
+						</div>
 						</form>
 					  </div>
 					  
@@ -65,7 +76,7 @@
 							<div class="logo"><img src="images/pesu1.png"></div>
 							<h2>PES Boys Hostel</h2>
 							<p>Accomodation for PES University Students</p>
-							<button id="signup_button" onclick="location.href='register.html';">Join Hostel</button>
+							<button id="signup_button" onclick="location.href='register.php';">Join Hostel</button>
 						</div>
 					</section>
 
@@ -159,6 +170,6 @@
 			<script src="assets/home/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/home/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/home/js/main.js"></script>
-
+			<script src="assets/home/js/login.js"></script>
 	</body>
 </html>

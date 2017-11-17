@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(isset($_SESSION["usn"]))
+{
+	header("Location: dashboard.php");
+	die();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,25 +28,25 @@
       <div class="card-header">Register for Hostel Admission</div>
       <div class="card-body">
           <p style="color:red">*All fields are mandatory</p>
-        <form>
+        <form action="backend/register.php" method="post">
         <!-- STUDENT DETAILS-->
           <div class="form-group">
             <strong><p>Student Details</p></strong>
               <label for="student_name">Full Name</label>
-              <input class="form-control" id="student_name" type="text" aria-describedby="nameHelp" placeholder="Enter student full name" required>
+              <input class="form-control" id="student_name" name="student_name" type="text" aria-describedby="nameHelp" placeholder="Enter student full name" required>
           </div>
           <div class="form-group">
             <label for="student_email">Email address</label>
-            <input class="form-control" id="student_email" type="email" aria-describedby="emailHelp" placeholder="Enter student email" required>
+            <input class="form-control" id="student_email" name="student_email" type="email" aria-describedby="emailHelp" placeholder="Enter student email" required>
           </div>
           <div class="form-group">
             <label for="student_phone">Phone number</label>
-            <input class="form-control" id="student_phone" type="number" max="9999999999" aria-describedby="phoneHelp" placeholder="Enter student phone number" required>
+            <input class="form-control" id="student_phone" name="student_phone" type="number" max="9999999999" aria-describedby="phoneHelp" placeholder="Enter student phone number" required>
             <small id="phoneHelp" class="form-text text-muted">Enter 10 digit mobile number</small>
           </div>
           <div class="form-group">
             <label for="student_password">Password</label>
-            <input class="form-control" id="student_password" type="password" aria-describedby="passwordHelp" placeholder="Student password">
+            <input class="form-control" id="student_password" name="student_password" type="password" aria-describedby="passwordHelp" placeholder="Student password">
             <small id="passwordHelp" class="form-text text-muted">To be used for login purpose</small>
           </div>
           <hr/>
@@ -48,20 +56,21 @@
                 <small id="detailsHelp" class="form-text text-muted">Provide details of your Mother/Father</small>
             </p></strong>
                 <label for="parent_name">Full Name</label>
-                <input class="form-control" id="parent_name" type="text" aria-describedby="nameHelp" placeholder="Enter parent full name" required>
+                <input class="form-control" id="parent_name" name="parent_name" type="text" aria-describedby="nameHelp" placeholder="Enter parent full name" required>
             </div>
             <div class="form-group">
               <label for="parent_email">Email address</label>
-              <input class="form-control" id="parent_email" type="email" aria-describedby="emailHelp" placeholder="Enter parent email" required>
+              <input class="form-control" id="parent_email" name="parent_email" type="email" aria-describedby="emailHelp" placeholder="Enter parent email" required>
+              <small id="emailHelp" class="form-text text-muted">P_{student usn} to be used as username for parent login</small>
             </div>
             <div class="form-group">
               <label for="parent_phone">Phone number</label>
-              <input class="form-control" id="parent_phone" type="number" max="9999999999" aria-describedby="phoneHelp" placeholder="Enter parent phone number" required>
+              <input class="form-control" id="parent_phone" name="parent_phone" type="number" max="9999999999" aria-describedby="phoneHelp" placeholder="Enter parent phone number" required>
               <small id="phoneHelp" class="form-text text-muted">Enter 10 digit mobile number</small>
             </div>
             <div class="form-group">
               <label for="parent_password">Password</label>
-              <input class="form-control" id="parent_password" type="password" aria-describedby="passwordHelp" placeholder="Parent password">
+              <input class="form-control" id="parent_password" name="parent_password" type="password" aria-describedby="passwordHelp" placeholder="Parent password">
               <small id="passwordHelp" class="form-text text-muted">To be used for login purpose</small>
             </div>
             <hr/>
@@ -71,26 +80,26 @@
                 <small id="detailsHelp" class="form-text text-muted">Provide details of your Local Guardian</small>
             </p></strong>
                 <label for="lg_name">Full Name</label>
-                <input class="form-control" id="lg_name" type="text" aria-describedby="nameHelp" placeholder="Enter LG full name" required>
+                <input class="form-control" id="lg_name" name="lg_name" type="text" aria-describedby="nameHelp" placeholder="Enter LG full name" required>
             </div>
             <div class="form-group">
               <label for="lg_email">Email address</label>
-              <input class="form-control" id="lg_email" type="email" aria-describedby="emailHelp" placeholder="Enter LG email" required>
+              <input class="form-control" id="lg_email" name="lg_email" type="email" aria-describedby="emailHelp" placeholder="Enter LG email" required>
             </div>
             <div class="form-group">
               <label for="lg_phone">Phone number</label>
-              <input class="form-control" id="lg_phone" type="number" max="9999999999" aria-describedby="phoneHelp" placeholder="Enter LG phone number" required>
+              <input class="form-control" id="lg_phone" name="lg_phone" type="number" max="9999999999" aria-describedby="phoneHelp" placeholder="Enter LG phone number" required>
               <small id="phoneHelp" class="form-text text-muted">Enter 10 digit mobile number</small>
             </div>
             <hr/>
             <div class="form-group">
             <strong><p>Address Details</p></strong>
               <label for="permanent_address">Permanent Address</label>
-              <textarea class="form-control" id="permanent_address" rows="3" placeholder="Enter permanent address of student" required></textarea>
+              <textarea class="form-control" id="permanent_address" name="permanent_address" rows="3" placeholder="Enter permanent address of student" required></textarea>
             </div>
             <div class="form-group">
               <label for="local_address">Local Address</label>
-              <textarea class="form-control" id="local_address" rows="3" placeholder="Enter local address of student (LG Address)" required></textarea>
+              <textarea class="form-control" id="local_address" name="local_address" rows="3" placeholder="Enter local address of student (LG Address)" required></textarea>
             </div>
             <div class="form-group">
               <strong><p>Admission Details</p></strong>
@@ -110,9 +119,10 @@
             </div>
             <div class="form-group">
               <label for="admission">Admission Number</label>
-                <input class="form-control" id="student_adm" type="text" aria-describedby="nameHelp" placeholder="Enter Admission Number" required>
+                <input class="form-control" id="student_adm" name="usn" type="text" aria-describedby="usernameHelp" placeholder="Enter Admission Number" required>
               <label for="USN">Student USN</label>
-                <input class="form-control" id="student_usn" type="text" aria-describedby="nameHelp" placeholder="Enter University Serial Number" required>
+                <input class="form-control" id="student_usn" name="usn" type="text" aria-describedby="usernameHelp" placeholder="Enter University Serial Number" required>
+                <small id="usernameHelp" class="form-text text-muted">To be used as username to login</small>
             </div>
             <div class="form-group">
               <label for="type" aria-describedby="rooms">Room Preference<br>
@@ -154,7 +164,7 @@
             </div>
             <div class="form-group">
               <label for="warden_date">Warden Appointment Date</label>
-              <input type="date" id="warden_date" class="form-control" required/>
+              <input type="date" id="warden_date" name="warden_date" class="form-control" required/>
             </div>
             <div class="form-group">
                 <label for="bill_amount"><strong>Amount to be paid</label>
@@ -169,10 +179,10 @@
                     </span>
                 </label>
             </div>
-          <input type="submit" class="btn btn-primary btn-block" />
+          <input type="submit" id="submit_button" class="btn btn-primary btn-block" />
         </form>
         <div class="text-center">
-          <a class="d-block small mt-3" href="index.html">Home</a>
+          <a class="d-block small mt-3" href="index.php">Home</a>
         </div>
       </div>
     </div>
@@ -182,26 +192,9 @@
   <script src="assets/dashboard/vendor/popper/popper.min.js"></script>
   <script src="assets/dashboard/vendor/bootstrap/js/bootstrap.min.js"></script>
   <script src="assets/dashboard/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="assets/dashboard/js/register.js"></script>
   <script>
-  $("#student_usn, #radio5, #radio6, #radio7, #radio8").prop("disabled", true);
-  $("#radio1").click(function() {
-                                  $("#student_adm, #radio3, #radio4").prop("disabled", false);
-                                  $("#student_usn, #radio5, #radio6, #radio7, #radio8").prop("disabled", true); 
-                                  $("#radio3").prop("checked", true);
-                                  $("#bill_amount").html("₹ 1,25,000");                               
-                                });
-  $("#radio2").click(function() {
-                                  $("#student_usn, #radio5, #radio6, #radio7, #radio8").prop("disabled", false);
-                                  $("#student_adm, #radio3, #radio4").prop("disabled", true);
-                                  $("#radio6").prop("checked", true);
-                                  $("#bill_amount").html("₹ 1,25,000");
-                                });
-  $("#radio3, #radio6, #radio7").click(function() {
-                                  $("#bill_amount").html("₹ 1,25,000");
-                                });
-  $("#radio4, #radio5, #radio8").click(function() {
-                                  $("#bill_amount").html("₹ 1,35,000");
-                                });
+
   </script>
 </body>
 

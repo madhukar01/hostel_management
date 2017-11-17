@@ -1,3 +1,14 @@
+<?php
+session_start();
+if(!isset($_SESSION["usn"]))
+{
+	header("Location: login.php");
+	die();
+}
+else
+$usn = $_SESSION["usn"];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,30 +19,29 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <title>PES Boys Hostel Dashboard</title>
-  <!-- Bootstrap core CSS-->
+  <!-- Bootstrap CSS-->
   <link href="assets/dashboard/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/dashboard/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link href="assets/dashboard/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <link href="assets/dashboard/css/dashboard.css" rel="stylesheet">
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="dashboard.html">PES Hostel</a>
+    <a class="navbar-brand" href="dashboard.php">PES Hostel</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="dashboard.html">
+          <a class="nav-link" href="dashboard.php">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Analytics">
-          <a class="nav-link" href="analytics.html">
+          <a class="nav-link" href="analytics.php">
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Analytics</span>
           </a>
@@ -42,33 +52,19 @@
             <span class="nav-link-text">Menu</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseMulti">
-            <li>
-              <a href="#">TBA</a>
-            </li>
-            <li>
-              <a href="#">TBA</a>
-            </li>
-            <li>
-              <a href="#">TBA</a>
-            </li>
-            <li>
-              <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Next level</a>
-              <ul class="sidenav-third-level collapse" id="collapseMulti2">
-                <li>
-                  <a href="#">TBA</a>
-                </li>
-                <li>
-                  <a href="#">TBA</a>
-                </li>
-                <li>
-                  <a href="#">TBA</a>
-                </li>
-              </ul>
-            </li>
+          <li>
+            <a href="allot_room.php">Room Allotment</a>
+          </li>
+          <li>
+            <a href="allot_food.php">Food Coupons</a>
+          </li>
+          <li>
+            <a href="contact.html">Contact Office</a>
+          </li>
           </ul>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="blank.html">
+          <a class="nav-link" href="blank.php">
             <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Link</span>
           </a>
@@ -145,32 +141,70 @@
           </form>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+          <a class="nav-link" data-toggle="modal" data-target="#logoutmodal">
             <i class="fa fa-fw fa-sign-out"></i>Logout</a>
         </li>
       </ul>
     </div>
   </nav>
+
   <div class="content-wrapper">
     <div class="container-fluid">
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
+          <a href="dashboard.php">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">My Dashboard</li>
+        <li class="breadcrumb-item active">Room Allotment</li>
       </ol>
-      <!-- Icon Cards-->
-      <div class="row">
+      <div id="room_allotment">
+      <label for="student_type">Student Type</label>
+      <div class="row" id="student_type">
+        <div class="col-xl-3 col-sm-6 mb-5">
+          <div class="card text-white bg-danger o-hidden h-100">
+            <div class="card-body">
+              <div class="card-body-icon">
+                <i class="fa fa-fw fa-university"></i>
+              </div>
+              <div class="mr-5">Fresher</div>
+            </div>
+            <a id="fresher_button" class="card-footer text-white clearfix small z-1" href="#">
+              <span class="float-left">Book Now</span>
+              <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-5">
+          <div class="card text-white bg-info o-hidden h-100">
+            <div class="card-body">
+              <div class="card-body-icon">
+                <i class="fa fa-fw fa-graduation-cap "></i>
+              </div>
+              <div class="mr-5">Hostelite</div>
+            </div>
+            <a id="hostelite_button" class="card-footer text-white clearfix small z-1" href="#">
+              <span class="float-left">Book Now</span>
+              <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <label aria-describedby="roomhelp">Room Type
+      <small id="roomhelp" class="form-text text-muted">Will be shown as per student type</small></label>
+      <div class="row" id="room_type_1">
         <div class="col-xl-3 col-sm-6 mb-3">
           <div class="card text-white bg-primary o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
-                <i class="fa fa-fw fa-bell"></i>
+                <i class="fa fa-fw fa-users"></i>
               </div>
-              <div class="mr-5">Announcements</div>
+              <div class="mr-5">New Block</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
-              <span class="float-left">View Details</span>
+            <a id="new_block_button" class="card-footer text-white clearfix small z-1" href="#">
+              <span class="float-left">Book Now</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
               </span>
@@ -181,12 +215,12 @@
           <div class="card text-white bg-warning o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
-                <i class="fa fa-fw fa-bed"></i>
+                <i class="fa fa-fw fa-user-plus"></i>
               </div>
-              <div class="mr-5">Room allotment</div>
+              <div class="mr-5">Mess Block</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
-              <span class="float-left">View Details</span>
+            <a id="mess_block_button" class="card-footer text-white clearfix small z-1" href="#">
+              <span class="float-left">Book Now</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
               </span>
@@ -197,12 +231,12 @@
           <div class="card text-white bg-success o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
-                <i class="fa fa-fw fa-cutlery"></i>
+                <i class="fa fa-fw fa-user-plus"></i>
               </div>
-              <div class="mr-5">Food coupon</div>
+              <div class="mr-5">MM Block</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
-              <span class="float-left">View Details</span>
+            <a id="mm_block_button" class="card-footer text-white clearfix small z-1" href="#">
+              <span class="float-left">Book Now</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
               </span>
@@ -213,12 +247,12 @@
           <div class="card text-white bg-danger o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
-                <i class="fa fa-fw fa-support"></i>
+                <i class="fa fa-fw fa-user"></i>
               </div>
-              <div class="mr-5">Contact Office</div>
+              <div class="mr-5">IH Block</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
-              <span class="float-left">View Details</span>
+            <a id="ih_block_button" class="card-footer text-white clearfix small z-1" href="#">
+              <span class="float-left">Book Now</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
               </span>
@@ -226,54 +260,59 @@
           </div>
         </div>
       </div>
-      <!-- Area Chart-->
-      <div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-area-chart"></i> Area Chart</div>
-        <div class="card-body">
-          <canvas id="myAreaChart" width="100%" height="30"></canvas>
-        </div>
-        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-      </div>
-      <div class="row">
-        <div class="col-lg-8">
-          <!-- Bar Chart Card-->
-          <div class="card mb-3">
-            <div class="card-header">
-              <i class="fa fa-bar-chart"></i> Bar Chart</div>
+      <div class="row" id="room_type_2">
+        <div class="col-xl-3 col-sm-6 mb-3">
+          <div class="card text-white bg-warning o-hidden h-100">
             <div class="card-body">
-              <div class="row">
-                <div class="col-sm-8 my-auto">
-                  <canvas id="myBarChart" width="100" height="50"></canvas>
-                </div>
-                <div class="col-sm-4 text-center my-auto">
-                  <div class="h4 mb-0 text-primary">$34,693</div>
-                  <div class="small text-muted">YTD Revenue</div>
-                  <hr>
-                  <div class="h4 mb-0 text-warning">$18,474</div>
-                  <div class="small text-muted">YTD Expenses</div>
-                  <hr>
-                  <div class="h4 mb-0 text-success">$16,219</div>
-                  <div class="small text-muted">YTD Margin</div>
-                </div>
+              <div class="card-body-icon">
+                <i class="fa fa-fw fa-users"></i>
               </div>
+              <div class="mr-5">IT Block</div>
             </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+            <a id="it_block_button" class="card-footer text-white clearfix small z-1" href="#">
+              <span class="float-left">Book Now</span>
+              <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </a>
           </div>
         </div>
-        <div class="col-lg-4">
-          <!--Pie Chart Card-->
-          <div class="card mb-3">
-            <div class="card-header">
-              <i class="fa fa-pie-chart"></i> Pie Chart</div>
+        <div class="col-xl-3 col-sm-6 mb-3">
+          <div class="card text-white bg-success o-hidden h-100">
             <div class="card-body">
-              <canvas id="myPieChart" width="100%" height="100"></canvas>
+              <div class="card-body-icon">
+                <i class="fa fa-fw fa-users"></i>
+              </div>
+              <div class="mr-5">NBX Block</div>
             </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+            <a id="nbx_block_button" class="card-footer text-white clearfix small z-1" href="#">
+              <span class="float-left">Book Now</span>
+              <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </a>
           </div>
         </div>
+      </div>
+      </div>
+      <div id="booking_success" class="alert alert-success">
+        <strong>Success!</strong> Your room has been successfully booked.
+      </div>
+      <div id="booking_failure" class="alert alert-danger">
+        <strong>Failure!</strong> Unfortunately we couldn't book your room since all rooms have been booked in the selected block.<br>
+        Please reload this page to choose a different block.
+      </div>
+      <div id="room_booked" class="alert alert-info">
+          <strong>Info!</strong> Dear student, you have already done your room booking for the year.<br>
+          Please contact the Hostel office for any changes.
+        </div>
+        <div id="booking_error" class="alert alert-warning">
+        <strong>Error !</strong> There was an error whike booking your room.
+        <br> Please try again.
       </div>
     </div>
+  </div>
+    <!-- /.container-fluid-->
     <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
@@ -286,11 +325,11 @@
       <i class="fa fa-angle-up"></i>
     </a>
     <!-- Logout Modal-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="logoutmodal" tabindex="-1" role="dialog" aria-labelledby="logoutmodalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <h5 class="modal-title" id="logoutmodalLabel">Ready to Leave?</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
@@ -298,23 +337,30 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="index.html">Logout</a>
+            <a class="btn btn-primary" href="backend/logout.php">Logout</a>
           </div>
         </div>
       </div>
     </div>
-    <!-- Bootstrap core JavaScript-->
+    <!-- Bootstrap JS-->
     <script src="assets/dashboard/vendor/jquery/jquery.min.js"></script>
     <script src="assets/dashboard/vendor/popper/popper.min.js"></script>
     <script src="assets/dashboard/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/dashboard/vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="assets/dashboard/vendor/chart.js/Chart.min.js"></script>
-    <script src="assets/dashboard/vendor/datatables/jquery.dataTables.js"></script>
-    <script src="assets/dashboard/vendor/datatables/dataTables.bootstrap4.js"></script>
     <script src="assets/dashboard/js/dashboard.min.js"></script>
-    <script src="assets/dashboard/js/dashboard-datatables.min.js"></script>
-    <script src="assets/dashboard/js/dashboard-charts.min.js"></script>
+    <script src="assets/dashboard/js/allot_room.js"></script>
   </div>
 </body>
 
 </html>
+
+
+<!--
+New block - A
+Mess block - B
+MM block - C
+IH block- D
+
+NBX - E
+IT Block -F
+-->
