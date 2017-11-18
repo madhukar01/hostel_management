@@ -31,7 +31,7 @@ if(isset($_SESSION["usn"]))
         <form id="login_form">
           <div class="form-group">
             <label for="username">Username</label>
-            <input class="form-control" id="username" name="usn" type="test" aria-describedby="usernameHelp" placeholder="Enter username" required>
+            <input class="form-control" id="username" name="usn" type="text" aria-describedby="usernameHelp" placeholder="Enter username" required>
             <small id="usernameHelp" class="form-text text-muted"></small>
           </div>
           <div class="form-group">
