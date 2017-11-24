@@ -19,6 +19,7 @@ else
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,9 +27,10 @@ else
   <meta name="description" content="">
   <meta name="author" content="">
   <title>PES Boys Hostel Dashboard</title>
-  <!-- Bootstrap CSS-->
+  <!-- Bootstrap core CSS-->
   <link href="assets/dashboard/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/dashboard/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="assets/dashboard/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <link href="assets/dashboard/css/dashboard.css" rel="stylesheet">
 </head>
 
@@ -59,16 +61,16 @@ else
             <span class="nav-link-text">Menu</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseMulti">
-            <li>
-              <a href="allot_room.php">Room Allotment</a>
-            </li>
-            <li>
-              <a href="allot_food.php">Food Coupons</a>
-            </li>
-            <li>
-              <a href="contact.html">Contact Office</a>
-            </li>
-          </ul>
+          <li>
+            <a href="allot_room.php">Room Allotment</a>
+          </li>
+          <li>
+            <a href="allot_food.php">Food Coupons</a>
+          </li>
+          <li>
+            <a href="contact.html">Contact Office</a>
+          </li>
+        </ul>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
           <a class="nav-link" href="blank.php">
@@ -154,60 +156,74 @@ else
       </ul>
     </div>
   </nav>
-
   <div class="content-wrapper">
     <div class="container-fluid">
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="dashboard.php">Dashboard</a>
+          <a href="#">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">Food Coupon Allotment</li>
+        <li class="breadcrumb-item active">My Dashboard</li>
       </ol>
-      <div id="food_allotment">
-      <label for="mess_type">Mess Type</label>
-      <div class="row" id="mess_type">
-        <div class="col-xl-3 col-sm-6 mb-5">
-          <div class="card text-white bg-danger o-hidden h-100">
+      <!-- Icon Cards-->
+      <div class="row">
+        <div class="col-xl-3 col-sm-6 mb-3">
+          <div class="card text-white bg-primary o-hidden h-100">
+            <div class="card-body">
+              <div class="card-body-icon">
+                <i class="fa fa-fw fa-bell"></i>
+              </div>
+              <div class="mr-5">Announcements</div>
+            </div>
+            <a class="card-footer text-white clearfix small z-1" href="#">
+              <span class="float-left">View Details</span>
+              <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-3">
+          <div class="card text-white bg-warning o-hidden h-100">
+            <div class="card-body">
+              <div class="card-body-icon">
+                <i class="fa fa-fw fa-bed"></i>
+              </div>
+              <div class="mr-5">Room allotment</div>
+            </div>
+            <a class="card-footer text-white clearfix small z-1" href="allot_room.php">
+              <span class="float-left">View Details</span>
+              <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-3">
+          <div class="card text-white bg-success o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-cutlery"></i>
               </div>
-              <div class="mr-5">Food Court</div>
+              <div class="mr-5">Food coupon</div>
             </div>
-            <a id="food_court_button" class="card-footer text-white clearfix small z-1" href="#">
-              <span class="float-left">Book Now</span>
+            <a class="card-footer text-white clearfix small z-1" href="allot_food.php">
+              <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
               </span>
             </a>
           </div>
         </div>
-        <div class="col-xl-3 col-sm-6 mb-5">
-            <div class="card text-white bg-warning o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fa fa-fw fa-spoon"></i>
-                </div>
-                <div class="mr-5">Hostel Mess</div>
-              </div>
-              <a id="hostel_mess_button" class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">Book Now</span>
-                <span class="float-right">
-                  <i class="fa fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-        <div class="col-xl-3 col-sm-6 mb-5">
-          <div class="card text-white bg-info o-hidden h-100">
+        <div class="col-xl-3 col-sm-6 mb-3">
+          <div class="card text-white bg-danger o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
-                <i class="fa fa-fw fa-lemon-o"></i>
+                <i class="fa fa-fw fa-support"></i>
               </div>
-              <div class="mr-5">Aman Rasoi</div>
+              <div class="mr-5">Contact Office</div>
             </div>
-            <a id="aman_rasoi_button" class="card-footer text-white clearfix small z-1" href="#">
-              <span class="float-left">Book Now</span>
+            <a class="card-footer text-white clearfix small z-1" href="#">
+              <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
               </span>
@@ -215,25 +231,54 @@ else
           </div>
         </div>
       </div>
-      </div>
-      <div id="booking_success" class="alert alert-success">
-        <strong>Success!</strong> Your food coupons have been successfully booked.
-      </div>
-      <div id="booking_failure" class="alert alert-danger">
-        <strong>Failure!</strong> Unfortunately we couldn't book your food coupon since all coupons have been booked in the selected mess.<br>
-        Please reload this page to choose a different mess.
-      </div>
-      <div id="food_booked" class="alert alert-info">
-          <strong>Info!</strong> Dear student, you have already done your food coupon booking for the month.<br>
-          Please contact the Hostel office for any changes.
+      <!-- Area Chart-->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-area-chart"></i> Area Chart</div>
+        <div class="card-body">
+          <canvas id="myAreaChart" width="100%" height="30"></canvas>
         </div>
-    <div id="food_error" class="alert alert-warning">
-          <strong>Error !</strong> There was an error whike booking your food coupon.
-        <br> Please try again.
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8">
+          <!-- Bar Chart Card-->
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-bar-chart"></i> Bar Chart</div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-8 my-auto">
+                  <canvas id="myBarChart" width="100" height="50"></canvas>
+                </div>
+                <div class="col-sm-4 text-center my-auto">
+                  <div class="h4 mb-0 text-primary">$34,693</div>
+                  <div class="small text-muted">YTD Revenue</div>
+                  <hr>
+                  <div class="h4 mb-0 text-warning">$18,474</div>
+                  <div class="small text-muted">YTD Expenses</div>
+                  <hr>
+                  <div class="h4 mb-0 text-success">$16,219</div>
+                  <div class="small text-muted">YTD Margin</div>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+          </div>
         </div>
+        <div class="col-lg-4">
+          <!--Pie Chart Card-->
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-pie-chart"></i> Pie Chart</div>
+            <div class="card-body">
+              <canvas id="myPieChart" width="100%" height="100"></canvas>
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-    <!-- /.container-fluid-->
     <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
@@ -263,25 +308,18 @@ else
         </div>
       </div>
     </div>
-    <!-- Bootstrap JS-->
+    <!-- Bootstrap core JavaScript-->
     <script src="assets/dashboard/vendor/jquery/jquery.min.js"></script>
     <script src="assets/dashboard/vendor/popper/popper.min.js"></script>
     <script src="assets/dashboard/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/dashboard/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="assets/dashboard/vendor/chart.js/Chart.min.js"></script>
+    <script src="assets/dashboard/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="assets/dashboard/vendor/datatables/dataTables.bootstrap4.js"></script>
     <script src="assets/dashboard/js/dashboard.min.js"></script>
-    <script src="assets/dashboard/js/allot_food.js"></script>
+    <script src="assets/dashboard/js/dashboard-datatables.min.js"></script>
+    <script src="assets/dashboard/js/dashboard-charts.min.js"></script>
   </div>
 </body>
 
 </html>
-
-
-<!--
-New block - A
-Mess block - B
-MM block - C
-IH block- D
-
-NBX - E
-IT Block -F
--->

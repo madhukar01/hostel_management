@@ -3,7 +3,7 @@ $servername = "localhost";
 $username = "madhuk_backend";
 $password = "backend@123";
 $dbname = "madhuk_HOSTEL";
-extract($_GET);
+extract($_POST);
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check connection
@@ -11,18 +11,63 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-
-$sql = "SELECT * FROM Student WHERE usn='$usn';";
-
-$result = mysqli_query($conn, $sql);
-
-if (mysqli_num_rows($result) > 0) {
-    echo "1";
-} 
-else
+if($user_type=='student')
 {
-    echo "0";
+    $sql = "SELECT * FROM Student WHERE usn='$usn';";
+    
+    $result = mysqli_query($conn, $sql);
+    
+    if (mysqli_num_rows($result) > 0) {
+        echo "1";
+    } 
+    else
+    {
+        echo "0";
+    }
 }
+else if($user_type=='doctor')
+{
+    $sql = "SELECT * FROM Doctor WHERE id='$usn';";
+    
+    $result = mysqli_query($conn, $sql);
+    
+    if (mysqli_num_rows($result) > 0) {
+        echo "1";
+    } 
+    else
+    {
+        echo "0";
+    }
+}
+else if($user_type=='parent')
+{
+    $sql = "SELECT * FROM Parent WHERE usn='$usn';";
+    
+    $result = mysqli_query($conn, $sql);
+    
+    if (mysqli_num_rows($result) > 0) {
+        echo "1";
+    } 
+    else
+    {
+        echo "0";
+    }
+}
+else if($user_type=='staff')
+{
+    $sql = "SELECT * FROM Staff WHERE id='$usn';";
+    
+    $result = mysqli_query($conn, $sql);
+    
+    if (mysqli_num_rows($result) > 0) {
+        echo "1";
+    } 
+    else
+    {
+        echo "0";
+    }
+}
+
 mysqli_close($conn);
 
 

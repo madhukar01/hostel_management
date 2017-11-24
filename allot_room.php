@@ -6,7 +6,15 @@ if(!isset($_SESSION["usn"]))
 	die();
 }
 else
-$usn = $_SESSION["usn"];
+{
+  if($_SESSION["user_type"] != "student" )
+  {
+    header("Location: dashboard.php");
+    die();
+  }
+  else
+    $usn = $_SESSION["usn"];
+}
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +30,7 @@ $usn = $_SESSION["usn"];
   <!-- Bootstrap CSS-->
   <link href="assets/dashboard/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/dashboard/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="assets/dashboard/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <link href="assets/dashboard/css/dashboard.css" rel="stylesheet">
 </head>
 
@@ -157,7 +166,7 @@ $usn = $_SESSION["usn"];
         <li class="breadcrumb-item active">Room Allotment</li>
       </ol>
       <div id="room_allotment">
-      <label for="student_type">Student Type</label>
+      <label for="student_type"><strong>Student Type</strong></label>
       <div class="row" id="student_type">
         <div class="col-xl-3 col-sm-6 mb-5">
           <div class="card text-white bg-danger o-hidden h-100">
@@ -192,7 +201,7 @@ $usn = $_SESSION["usn"];
           </div>
         </div>
       </div>
-      <label aria-describedby="roomhelp">Room Type
+      <label aria-describedby="roomhelp"><strong>Room Type</strong>
       <small id="roomhelp" class="form-text text-muted">Will be shown as per student type</small></label>
       <div class="row" id="room_type_1">
         <div class="col-xl-3 col-sm-6 mb-3">
@@ -203,7 +212,7 @@ $usn = $_SESSION["usn"];
               </div>
               <div class="mr-5">New Block</div>
             </div>
-            <a id="new_block_button" class="card-footer text-white clearfix small z-1" href="#">
+            <a id="new_block" class="card-footer text-white clearfix small z-1" href="#room_mate">
               <span class="float-left">Book Now</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -219,7 +228,7 @@ $usn = $_SESSION["usn"];
               </div>
               <div class="mr-5">Mess Block</div>
             </div>
-            <a id="mess_block_button" class="card-footer text-white clearfix small z-1" href="#">
+            <a id="mess_block" class="card-footer text-white clearfix small z-1" href="#room_mate">
               <span class="float-left">Book Now</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -235,7 +244,7 @@ $usn = $_SESSION["usn"];
               </div>
               <div class="mr-5">MM Block</div>
             </div>
-            <a id="mm_block_button" class="card-footer text-white clearfix small z-1" href="#">
+            <a id="mm_block" class="card-footer text-white clearfix small z-1" href="#room_mate">
               <span class="float-left">Book Now</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -307,11 +316,39 @@ $usn = $_SESSION["usn"];
           Please contact the Hostel office for any changes.
         </div>
         <div id="booking_error" class="alert alert-warning">
-        <strong>Error !</strong> There was an error whike booking your room.
+        <strong>Error !</strong> There was an error while booking your room.
         <br> Please try again.
       </div>
+      <div id="room_mate">
+      <strong><p>Roommate Details</p></strong>
+       <form id="roommate_form">
+      <div class="form-row m-2">
+            <label class="custom-control custom-radio">
+              <input id="radio1" name="choice_type" type="radio" class="custom-control-input" value="no_choice" checked>
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">No Choice</span>
+            </label>
+            <label class="custom-control custom-radio">
+              <input id="radio2" name="choice_type" type="radio" class="custom-control-input" value="choice">
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">Choose roommates</span>
+            </label>
+          </div>
+      <div class="form-group m-2">
+        <label for="room_mate1">USN Details</label>
+        <input id="valid" type="hidden" value="1"></input>
+        <input class="form-control col-md-2" id="room_mate1" name="usn1" type="text" aria-describedby="roommate_help1" placeholder="Enter USN" required>
+        <small id="roommate_help1" class="form-text text-muted"></small>
+        <input class="form-control col-md-2" id="room_mate2" name="usn2" type="text" aria-describedby="roommate_help2" placeholder="Enter USN" required>
+        <small id="roommate_help2" class="form-text text-muted"></small>
+        <strong><font color="red"><p>This cannot be undone. The USN entered will be barred from further booking. Further changes are not entertained !</p></font></strong>
+      </div>
+      </div>
+      <a class="btn btn-primary" id="new_block_button">Submit</a>
+      <a class="btn btn-primary" id="mess_block_button">Submit</a>
+      <a class="btn btn-primary" id="mm_block_button">Submit</a>
+    </form>
     </div>
-  </div>
     <!-- /.container-fluid-->
     <footer class="sticky-footer">
       <div class="container">

@@ -61,7 +61,7 @@ if(isset($_SESSION["usn"]))
             <div class="form-group">
               <label for="parent_email">Email address</label>
               <input class="form-control" id="parent_email" name="parent_email" type="email" aria-describedby="emailHelp" placeholder="Enter parent email" required>
-              <small id="emailHelp" class="form-text text-muted">P_{student usn} to be used as username for parent login</small>
+              <small id="emailHelp" class="form-text text-muted">Student usn to be used as username for parent login</small>
             </div>
             <div class="form-group">
               <label for="parent_phone">Phone number</label>

@@ -23,7 +23,7 @@ $("#student_adm").focusout(function() {
                                 var text =  $.trim( $("#student_adm").val());
                                 if(text != "")
                                 {
-                                    $.get("../hostel/backend/usn_exists.php?usn="+text, function(data) {
+                                    $.post("../hostel/backend/usn_exists.php", {usn: text, user_type: "student"}, function(data) {
                                         //alert("Data: " + data );
                                         if(data == 1)
                                         { 
@@ -43,7 +43,7 @@ $("#student_usn").focusout(function() {
     var text =  $.trim( $("#student_usn").val());
     if(text != "")
     {
-        $.get("../hostel/backend/usn_exists.php?usn="+text, function(data) {
+        $.post("../hostel/backend/usn_exists.php", {usn: text, user_type: "student"}, function(data) {
             //alert("Data: " + data );
             if(data == 1) 
             {

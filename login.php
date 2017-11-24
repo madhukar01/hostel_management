@@ -6,7 +6,6 @@ if(isset($_SESSION["usn"]))
 	die();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,17 +28,7 @@ if(isset($_SESSION["usn"]))
       <div class="card-header">Login</div>
       <div class="card-body">
         <form id="login_form">
-          <div class="form-group">
-            <label for="username">Username</label>
-            <input class="form-control" id="username" name="usn" type="test" aria-describedby="usernameHelp" placeholder="Enter username" required>
-            <small id="usernameHelp" class="form-text text-muted"></small>
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input class="form-control" id="password" type="password" aria-describedby="loginHelp" name="password" placeholder="Password" required>
-            <small id="loginHelp" class="form-text text-muted"></small>
-          </div>
-              <div class="form-row">
+            <div id="user_radio" class="form-row">
                 <label class="custom-control custom-radio">
                   <input id="radio1" name="user_type" type="radio" class="custom-control-input" value="student" checked>
                   <span class="custom-control-indicator"></span>
@@ -51,11 +40,31 @@ if(isset($_SESSION["usn"]))
                   <span class="custom-control-description">Parent</span>
                 </label>
                 <label class="custom-control custom-radio">
-                  <input id="radio2" name="user_type" type="radio" class="custom-control-input" value="staff">
+                  <input id="radio3" name="user_type" type="radio" class="custom-control-input" value="staff">
                   <span class="custom-control-indicator"></span>
                   <span class="custom-control-description">Staff</span>
                 </label>
+                <label class="custom-control custom-radio">
+                  <input id="radio4" name="user_type" type="radio" class="custom-control-input" value="doctor">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">Doctor</span>
+                </label>
+                <label class="custom-control custom-radio">
+                  <input id="radio5" name="user_type" type="radio" class="custom-control-input" value="admin">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">Admin</span>
+                </label>
               </div>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input class="form-control" id="username" name="usn" type="text" aria-describedby="usernameHelp" placeholder="Enter username" required>
+            <small id="usernameHelp" class="form-text text-muted"></small>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input class="form-control" id="password" type="password" aria-describedby="loginHelp" name="password" placeholder="Password" required>
+            <small id="loginHelp" class="form-text text-muted"></small>
+          </div>
           </div>
           <a class="btn btn-primary m-3" id="submit_button">Login</a>
         </form>
