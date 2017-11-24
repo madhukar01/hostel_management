@@ -16,7 +16,7 @@ if (!$conn) {
 $sql = "INSERT INTO Prescription VALUES('$usn','$prescription');";
 
 $result = mysqli_query($conn, $sql);
-if (mysqli_num_rows($result) > 0) {
+if ($result) {
         echo "0";   
     
 }    

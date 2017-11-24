@@ -6,14 +6,13 @@ $("#student_usn").focusout(function() {
     var text =  $.trim( $("#student_usn").val());
     if(text != "")
     {
-        $.get("../hostel/backend/usn_exists.php?usn="+text, function(data) {
+        $.post("../hostel/backend/usn_exists.php", {usn: text, user_type: "student"}, function(data) {
             //alert("Data: " + data );
             if(data == 1) 
             {
                 $("#usnHelp").html("<font color='blue'>Student found, Please enter prescription and submit !</font>");
                 $("#submit_button").prop("disabled", false);
-                $("#password").prop("disabled", false);
-
+                $("#prescription").prop("disabled", false);
             }
             else
             {
@@ -28,17 +27,25 @@ $("#student_usn").focusout(function() {
 $("#submit_button").click(function(){
     var usna =  $.trim( $("#student_usn").val());
     var desc =  $.trim( $("#prescription").val());
-    if(desc != "" && usn != "")
+    if(desc != "" && usna != "")
     {
-        $.post("../hostel/backend/doctor_description.php", {usn: usna, description: desc}, function(status) {
+        $.post("../hostel/backend/prescription.php", {usn: usna, prescription: desc}, function(status) {
             //alert("Data: " + data );
-            if(status == 1) 
+            if(status == 0) 
             {
                 $("#submit_success").show();
+                $("#description_form").hide();
+                setTimeout(function(){
+                    window.location.reload(1);
+                 }, 2000);
             }
             else
             {
                 $("#submit_failure").show();
+                $("#description_form").hide();
+                setTimeout(function(){
+                    window.location.reload(1);
+                 }, 2000);
             }
         });
     }   

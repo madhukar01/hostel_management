@@ -16,6 +16,7 @@ else
     $usn = $_SESSION["usn"];
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,27 +27,29 @@ else
   <meta name="description" content="">
   <meta name="author" content="">
   <title>PES Boys Hostel Dashboard</title>
-  <!-- Bootstrap CSS-->
+  <!-- Bootstrap core CSS-->
   <link href="assets/dashboard/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/dashboard/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="assets/dashboard/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <link href="assets/dashboard/css/dashboard.css" rel="stylesheet">
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="dashboard.php">PES Hostel</a>
+    <a class="navbar-brand" href="dashboard_doctor.php">PES Hostel</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="dashboard.php">
+          <a class="nav-link" href="dashboard_doctor.php">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Dashboard</span>
           </a>
-        </li> 
+        </li>
+      </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
           <a class="nav-link text-center" id="sidenavToggler">
@@ -62,16 +65,15 @@ else
       </ul>
     </div>
   </nav>
-
   <div class="content-wrapper">
     <div class="container-fluid">
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="dashboard.php">Dashboard</a>
+          <a href="#">Dashboard</a>
         </li>
         <li class="breadcrumb-item active">Doctor's Dashboard</li>
       </ol>
-      <div class="container">
+      <div id="description_form">
         <div class="form-group">
           <label for="student_usn">Student USN</label>
           <input class="form-control" id="student_usn" name="usn" type="text" aria-describedby="USN" placeholder="Enter student USN" required>
@@ -79,25 +81,18 @@ else
         </div>
         <div class="form-group">
           <label for="prescription">Prescription</label>
-          <input class="form-control" id="prescription" name="prescription" type="text" aria-describedby="prescriptionHelp" placeholder="Enter treatment prescription" required>
+          <input class="form-control" id="prescription" name="desc" type="text" aria-describedby="prescriptionHelp" placeholder="Enter treatment prescription" required>
           <small id="prescriptionHelp" class="form-text text-muted">Enter prescription of the treatment</small>
         </div>
-        <a id="submit_button" class="card-footer text-white clearfix small z-1" href="#">
-          <span class="float-left">Submit</span>
-          <span class="float-right">
-            <i class="fa fa-angle-right"></i>
-        </span>
-      </a>
+        <a class="btn btn-primary" id="submit_button">Submit</a>
+      </div>
       <div id="submit_success" class="alert alert-success">
         <strong>Success!</strong> Prescription has been successfuly saved.
       </div>
       <div id="submit_failure" class="alert alert-danger">
         <strong>Failure!</strong>There was an error while saving the prescription, Please try again !
       </div>
-      </div>
-      </div>
     </div>
-    <!-- /.container-fluid-->
     <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
@@ -127,12 +122,13 @@ else
         </div>
       </div>
     </div>
-    <!-- Bootstrap JS-->
+    <!-- Bootstrap core JavaScript-->
     <script src="assets/dashboard/vendor/jquery/jquery.min.js"></script>
     <script src="assets/dashboard/vendor/popper/popper.min.js"></script>
     <script src="assets/dashboard/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/dashboard/vendor/jquery-easing/jquery.easing.min.js"></script>
     <script src="assets/dashboard/js/dashboard.min.js"></script>
+    <script src="assets/dashboard/js/dashboard_doctor.js"></script>
   </div>
 </body>
 

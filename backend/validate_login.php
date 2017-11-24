@@ -52,6 +52,7 @@ else if($user_type=='parent')
 	    if($password==$row['paswd'])
 	    {
 	        $_SESSION["user_type"]="parent";
+	         $_SESSION['usn']="$usn";
 	    	echo "0"; 	
 	    }
 	    else
@@ -79,6 +80,7 @@ else if($user_type=='staff')
 	    if($password==$row['paswd'])
 	    {
 	        $_SESSION["user_type"]="staff";
+	         $_SESSION['usn']="$usn";
 	    	echo "0"; 	
 	    }
 	    else
@@ -106,6 +108,7 @@ else if($user_type=='doctor')
 	    if($password==$row['paswd'])
 	    {
 	        $_SESSION["user_type"]="doctor";
+	        $_SESSION['usn']="$usn";
 	    	echo "0"; 	
 	    }
 	    else
@@ -121,5 +124,32 @@ else if($user_type=='doctor')
 
 	mysqli_close($conn);
 }
+else if($user_type=='admin')
+{
+	$sql = "SELECT * FROM Waden WHERE id='$usn'";
 
+	$result = mysqli_query($conn, $sql);
+
+	if (mysqli_num_rows($result) > 0) {
+	    // output data of each row
+	    $row = mysqli_fetch_assoc($result);
+	    if($password==$row['paswd'])
+	    {
+	        $_SESSION["user_type"]="admin";
+	        $_SESSION['usn']="$usn";
+	    	echo "0"; 	
+	    }
+	    else
+	    {
+	    	echo "1";
+	    }
+	 
+	} 
+	else
+	{
+	    echo "2";
+	}
+
+	mysqli_close($conn);
+}
 ?> 
