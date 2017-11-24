@@ -87,7 +87,7 @@ $("#submit_button1").click(function(){
     var desc =  $.trim( $("#remarks").val());
     if(desc != "" && usna != "")
     {
-        $.post("../hostel/backend/prescription.php", {usn: usna, msg: desc}, function(status) {
+        $.post("../hostel/backend/remarks.php", {usn: usna, msg: desc}, function(status) {
             $("#staff_buttons").hide();
             $("#attendance_form").hide();
             $("#remarks_form").hide();
