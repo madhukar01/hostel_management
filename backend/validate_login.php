@@ -24,6 +24,7 @@ if($user_type=='student')
 	    if($password==$row['paswd'])
 	    {
 	        $_SESSION["usn"] = "$usn";
+	        $_SESSION["user_type"]="student";
 	    	echo "0"; 	
 	    }
 	    else
@@ -50,6 +51,7 @@ else if($user_type=='parent')
 	    $row = mysqli_fetch_assoc($result);
 	    if($password==$row['paswd'])
 	    {
+	        $_SESSION["user_type"]="parent";
 	    	echo "0"; 	
 	    }
 	    else
@@ -65,7 +67,7 @@ else if($user_type=='parent')
 
 	mysqli_close($conn);
 }
-else if($user_type=='Staff')
+else if($user_type=='staff')
 {
 	$sql = "SELECT * FROM Staff WHERE usn='$usn'";
 
@@ -76,6 +78,34 @@ else if($user_type=='Staff')
 	    $row = mysqli_fetch_assoc($result);
 	    if($password==$row['paswd'])
 	    {
+	        $_SESSION["user_type"]="staff";
+	    	echo "0"; 	
+	    }
+	    else
+	    {
+	    	echo "1";
+	    }
+	 
+	} 
+	else
+	{
+	    echo "2";
+	}
+
+	mysqli_close($conn);
+}
+else if($user_type=='doctor')
+{
+	$sql = "SELECT * FROM Doctor WHERE id='$usn'";
+
+	$result = mysqli_query($conn, $sql);
+
+	if (mysqli_num_rows($result) > 0) {
+	    // output data of each row
+	    $row = mysqli_fetch_assoc($result);
+	    if($password==$row['paswd'])
+	    {
+	        $_SESSION["user_type"]="doctor";
 	    	echo "0"; 	
 	    }
 	    else

@@ -54,15 +54,17 @@ if(isset($_SESSION["usn"]))
 							<img src="images/pes.ico" alt="pes_logo" class="avatar">
 						  </div>
 						  <div class="container">
+						  	<div id="user_radio" style="display: block; color: black;">
+									<label style="display: inline-block; padding:2px;">Student<input type="radio" name="user_type" value="student" checked/></label>
+									<label style="display: inline-block; padding:2px;">Parent<input type="radio" name="user_type" value="parent" /></label>
+									<label style="display: inline-block; padding:2px;">Staff<input type="radio" name="user_type" value="staff" /></label>
+									<label style="display: inline-block; padding:2px;">Doctor<input type="radio" name="user_type" value="doctor" /></label>
+									<label style="display: inline-block; padding:2px;">Admin<input type="radio" name="user_type" value="admin" /></label>
+							</div>
 							<input type="text" placeholder="Enter Username" name="usn" id="username" aria-describedby="usernameHelp" required >
 							<small id="usernameHelp" class="form-text text-muted"></small>
 							<input type="password" placeholder="Enter Password" name="password" id="password" aria-describedby="loginHelp" required> 
 							<small id="loginHelp" class="form-text text-muted"></small>
-							<div style="display: block; color: black;">
-									<label style="display: inline-block;">Student<input type="radio" name="user_type" value="student" checked/></label>
-									<label style="display: inline-block;">Parent<input type="radio" name="user_type" value="parent" /></label>
-									<label style="display: inline-block;">Staff<input type="radio" name="user_type" value="staff" /></label>
-							</div>
 							<button class="button small" id="submit_button">Login</button>
 							<button class="button small cancelbtn" type="button" onclick="document.getElementById('login').style.display='none'">Cancel</button>
 							

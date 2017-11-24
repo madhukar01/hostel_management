@@ -6,7 +6,15 @@ if(!isset($_SESSION["usn"]))
 	die();
 }
 else
-$usn = $_SESSION["usn"];
+{
+  if($_SESSION["user_type"] != "student" )
+  {
+    header("Location: dashboard.php");
+    die();
+  }
+  else
+    $usn = $_SESSION["usn"];
+}
 ?>
 
 <!DOCTYPE html>

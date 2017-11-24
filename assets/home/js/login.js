@@ -1,9 +1,10 @@
 $("#password").prop("disabled", true);
 $("#username").focusout(function() {
     var text =  $.trim( $("#username").val());
+    var user = $('input[name=user_type]:checked', '#user_radio').val();
     if(text != "")
     {
-        $.get("../hostel/backend/usn_exists.php?usn="+text, function(data) {
+        $.post("../hostel/backend/usn_exists.php?usn", {usn: text, user_type: user}, function(data) {
             //alert("Data: " + data );
             if(data == 1) 
             {
@@ -16,7 +17,7 @@ $("#username").focusout(function() {
                 $("#usernameHelp").html("<font color='red'>User not found, Please register to proceed !</font>");
                 $("#submit_button").prop("disabled", true);
                 $("#password").prop("disabled", true);
-            }
+            }i ll
         });
     }   
 });
@@ -41,4 +42,4 @@ $("#submit_button").click(function(){
 
 $('#login_form').bind('submit',function() {
     return false;
- });
+ }); 

@@ -30,32 +30,42 @@ if ("$block"=="A")
    else
    {
    */
+   
+   
      if(isset($usn1) && isset($usn2))  
      {
-        $sql="SELECT * FROM ROOM WHERE block='".$block."' AND ((block,r_no) NOT IN (SELECT block,r_no FROM Alloted_Room))";
-    	$result = mysqli_query($conn, $sql);
-    	if (mysqli_num_rows($result) > 0) 
-    	{
-    		$row = mysqli_fetch_assoc($result);
-    
-    		$sql = "INSERT INTO Alloted_Room VALUES(".$row['r_no'].",'".$row['block']."','".$usn."');";
-    		$result1 = mysqli_query($conn, $sql);
-    		$sql = "INSERT INTO Alloted_Room VALUES(".$row['r_no'].",'".$row['block']."','".$usn1."');";
-    		$result2 = mysqli_query($conn, $sql);
-    	  	$sql = "INSERT INTO Alloted_Room VALUES(".$row['r_no'].",'".$row['block']."','".$usn2."');";
-    		$result3 = mysqli_query($conn, $sql);
-    		if ($result1 && $result2 && $result3) {
-    			echo "1";
-    		} 
-    		else
-    		{
-    			echo "100";
-    		}		
-    	}
-    	else
-    	{
-    	    echo "0";
-    	}
+        if(($usn!=$usn1)&&($usn!=$usn2)&&($usn1!=$usn2))
+        {
+        
+            $sql="SELECT * FROM ROOM WHERE block='".$block."' AND ((block,r_no) NOT IN (SELECT block,r_no FROM Alloted_Room))";
+        	$result = mysqli_query($conn, $sql);
+        	if (mysqli_num_rows($result) > 0) 
+        	{
+        		$row = mysqli_fetch_assoc($result);
+        
+        		$sql = "INSERT INTO Alloted_Room VALUES(".$row['r_no'].",'".$row['block']."','".$usn."');";
+        		$result1 = mysqli_query($conn, $sql);
+        		$sql = "INSERT INTO Alloted_Room VALUES(".$row['r_no'].",'".$row['block']."','".$usn1."');";
+        		$result2 = mysqli_query($conn, $sql);
+        	  	$sql = "INSERT INTO Alloted_Room VALUES(".$row['r_no'].",'".$row['block']."','".$usn2."');";
+        		$result3 = mysqli_query($conn, $sql);
+        		if ($result1 && $result2 && $result3) {
+        			echo "1";
+        		} 
+        		else
+        		{
+        			echo "100";
+        		}		
+        	}
+        	else
+        	{
+        	    echo "0";
+        	}
+        }
+        else
+        {
+            echo "200";
+        }
      }
      else if(isset($usn1))
      {
@@ -159,30 +169,36 @@ else if ("$block"=="B")
 {
     if(isset($usn1))
     {    
+        if($usn1==$usn)
+        {
+            echo "200";
+        }
+        else
+        {
+            $sql="SELECT * FROM ROOM WHERE block='".$block."' AND ((block,r_no) NOT IN (SELECT block,r_no FROM Alloted_Room))";
+            $result = mysqli_query($conn, $sql);
+      	
+        	if (mysqli_num_rows($result) > 0) 
+        	{
+        		$row = mysqli_fetch_assoc($result);
         
-         $sql="SELECT * FROM ROOM WHERE block='".$block."' AND ((block,r_no) NOT IN (SELECT block,r_no FROM Alloted_Room))";
-        $result = mysqli_query($conn, $sql);
-  	
-    	if (mysqli_num_rows($result) > 0) 
-    	{
-    		$row = mysqli_fetch_assoc($result);
-    
-    		$sql = "INSERT INTO Alloted_Room VALUES(".$row['r_no'].",'".$row['block']."','".$usn."');";
-    		$result1 = mysqli_query($conn, $sql);
-    		$sql = "INSERT INTO Alloted_Room VALUES(".$row['r_no'].",'".$row['block']."','".$usn1."');";
-    		$result2 = mysqli_query($conn, $sql);
-    	  	if ($result1 && $result2) {
-    			echo "1";
-    		} 
-    		else
-    		{
-    			echo "100";
-    		}		
-    	}
-    	else
-    	{
-    	    echo "0";
-    	}
+        		$sql = "INSERT INTO Alloted_Room VALUES(".$row['r_no'].",'".$row['block']."','".$usn."');";
+        		$result1 = mysqli_query($conn, $sql);
+        		$sql = "INSERT INTO Alloted_Room VALUES(".$row['r_no'].",'".$row['block']."','".$usn1."');";
+        		$result2 = mysqli_query($conn, $sql);
+        	  	if ($result1 && $result2) {
+        			echo "1";
+        		} 
+        		else
+        		{
+        			echo "100";
+        		}		
+        	}
+        	else
+        	{
+        	    echo "0";
+        	}
+        }
     }
     else
     {
@@ -237,30 +253,36 @@ else if ("$block"=="C")
 
     if(isset($usn1))
     {    
+        if($usn1==$usn)
+        {
+            echo "200";
+        }
+        else
+        {
+             $sql="SELECT * FROM ROOM WHERE block='".$block."' AND ((block,r_no) NOT IN (SELECT block,r_no FROM Alloted_Room))";
+            $result = mysqli_query($conn, $sql);
+      	
+        	if (mysqli_num_rows($result) > 0) 
+        	{
+        		$row = mysqli_fetch_assoc($result);
         
-         $sql="SELECT * FROM ROOM WHERE block='".$block."' AND ((block,r_no) NOT IN (SELECT block,r_no FROM Alloted_Room))";
-        $result = mysqli_query($conn, $sql);
-  	
-    	if (mysqli_num_rows($result) > 0) 
-    	{
-    		$row = mysqli_fetch_assoc($result);
-    
-    		$sql = "INSERT INTO Alloted_Room VALUES(".$row['r_no'].",'".$row['block']."','".$usn."');";
-    		$result1 = mysqli_query($conn, $sql);
-    		$sql = "INSERT INTO Alloted_Room VALUES(".$row['r_no'].",'".$row['block']."','".$usn1."');";
-    		$result2 = mysqli_query($conn, $sql);
-    	  	if ($result1 && $result2) {
-    			echo "1";
-    		} 
-    		else
-    		{
-    			echo "100";
-    		}		
-    	}
-    	else
-    	{
-    	    echo "0";
-    	}
+        		$sql = "INSERT INTO Alloted_Room VALUES(".$row['r_no'].",'".$row['block']."','".$usn."');";
+        		$result1 = mysqli_query($conn, $sql);
+        		$sql = "INSERT INTO Alloted_Room VALUES(".$row['r_no'].",'".$row['block']."','".$usn1."');";
+        		$result2 = mysqli_query($conn, $sql);
+        	  	if ($result1 && $result2) {
+        			echo "1";
+        		} 
+        		else
+        		{
+        			echo "100";
+        		}		
+        	}
+        	else
+        	{
+        	    echo "0";
+        	}
+        }
     }
     else
     {
