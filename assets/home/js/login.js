@@ -17,7 +17,7 @@ $("#username").focusout(function() {
                 $("#usernameHelp").html("<font color='red'>User not found, Please register to proceed !</font>");
                 $("#submit_button").prop("disabled", true);
                 $("#password").prop("disabled", true);
-            }i ll
+            }
         });
     }   
 });

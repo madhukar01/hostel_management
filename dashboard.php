@@ -10,6 +10,7 @@ else
   if($_SESSION["user_type"] == "student" )
   {
     header("Location: dashboard_student.php");
+    header("Location: dashboard _student.php");
     die();
   }
   else if($_SESSION["user_type"] == "parent" )
