@@ -115,7 +115,7 @@ else
           <small id="usnHelp1" class="form-text text-muted"></small>
         </div>
         <div class="form-group">
-          <label for="Remarks">Remarks</label>
+          <label for="remarks">Remarks</label>
           <input class="form-control" id="remarks" name="desc" type="text" aria-describedby="remarksHelp" placeholder="Enter remarks" required>
           <small id="remarksnHelp" class="form-text text-muted">Enter remarks</small>
         </div>

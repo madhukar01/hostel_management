@@ -13,7 +13,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-$sql = "INSERT INTO Remarks VALUES('$id','$usn','$day');";
+$sql = "INSERT INTO Remarks VALUES('$id','$usn','$msg');";
     
 $result = mysqli_query($conn, $sql);
     
