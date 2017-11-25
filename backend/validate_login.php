@@ -70,7 +70,7 @@ else if($user_type=='parent')
 }
 else if($user_type=='staff')
 {
-	$sql = "SELECT * FROM Staff WHERE usn='$usn'";
+	$sql = "SELECT * FROM Staff WHERE id='$usn'";
 
 	$result = mysqli_query($conn, $sql);
 

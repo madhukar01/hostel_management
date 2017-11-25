@@ -1,7 +1,7 @@
 $("#submit_button").prop("disabled", true);
 $("#prescription").prop("disabled", true);
-$("#submit_success").hide()
-$("#submit_failure").hide()
+$("#submit_success").hide();
+$("#submit_failure").hide();
 $("#student_usn").focusout(function() {
     var text =  $.trim( $("#student_usn").val());
     if(text != "")
@@ -31,21 +31,21 @@ $("#submit_button").click(function(){
     {
         $.post("../hostel/backend/prescription.php", {usn: usna, prescription: desc}, function(status) {
             //alert("Data: " + data );
+            $("#description_form").hide();
             if(status == 0) 
             {
                 $("#submit_success").show();
-                $("#description_form").hide();
+                
                 setTimeout(function(){
                     window.location.reload(1);
-                 }, 2000);
+                 }, 5000);
             }
             else
             {
                 $("#submit_failure").show();
-                $("#description_form").hide();
                 setTimeout(function(){
                     window.location.reload(1);
-                 }, 2000);
+                 }, 5000);
             }
         });
     }   
