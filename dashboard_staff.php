@@ -106,6 +106,22 @@ else
             </a>
           </div>
         </div>
+        <div class="col-xl-3 col-sm-6 mb-3">
+          <div class="card text-white bg-warning o-hidden h-100">
+            <div class="card-body">
+              <div class="card-body-icon">
+                <i class="fa fa-fw fa-bullhorn"></i>
+              </div>
+              <div class="mr-5">Send Announcement</div>
+            </div>
+            <a class="card-footer text-white clearfix small z-1" id="announcement_button" href="#">
+              <span class="float-left">Proceed Now</span>
+              <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
         </div>
 
       <div id="remarks_form">
@@ -130,11 +146,21 @@ else
         </div>
         <a class="btn btn-primary" id="submit_button2" href="#">Mark Attendance</a>
       </div>
+
+      <div id="announcement_form">
+        <div class="form-group">
+          <label for="announcement">Announcement</label>
+          <input class="form-control" id="announcement" name="desc" type="text" aria-describedby="remarksHelp" placeholder="Enter remarks" required>
+          <small id="remarksnHelp" class="form-text text-muted">Enter announcement</small>
+        </div>
+        <a class="btn btn-primary" id="submit_button3" href="#">Submit</a>
+      </div>
+
       <div id="submit_success" class="alert alert-success">
-        <strong>Success!</strong> Remarks/Attendance has been successfuly saved.
+        <strong>Success!</strong> Data has been successfuly saved.
       </div>
       <div id="submit_failure" class="alert alert-danger">
-        <strong>Failure!</strong>There was an error while saving the Remarks, Please try again !
+        <strong>Failure!</strong>There was an error while saving the data, Please try again !
       </div>
       <div id="submit_duplicate" class="alert alert-info">
         <strong>Failure!</strong>Attendance has already been marked for the student for the day !

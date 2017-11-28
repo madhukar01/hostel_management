@@ -88,15 +88,15 @@ else
         <li class="breadcrumb-item">
           <a href="dashboard_parent.php">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">Attendance</li>
+        <li class="breadcrumb-item active">Doctor Prescription</li>
       </ol>
       <div class="card-body">
-        <div id="attendance_table" class="table-responsive">
+        <div id="prescription_table" class="table-responsive">
         </div>
       </div>
     </div>
-    <div id="failure" class="alert alert-danger">
-      <strong>Failure!</strong> Attendance data is not available, Please try again later !
+    <div id="prescription" class="alert alert-info">
+      <strong>Hey there!</strong> There are no prescriptions given by doctor to your ward !
     </div>
     </div>
     <!-- /.container-fluid-->
@@ -135,7 +135,7 @@ else
     <script src="assets/dashboard/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/dashboard/vendor/jquery-easing/jquery.easing.min.js"></script>
     <script src="assets/dashboard/js/dashboard.min.js"></script>
-    <script src="assets/dashboard/js/attendance.js"></script>
+    <script src="assets/dashboard/js/doctor_prescription.js"></script>
   </div>
 </body>
 

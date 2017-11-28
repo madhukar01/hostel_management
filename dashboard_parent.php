@@ -61,10 +61,10 @@ else
             <span class="nav-link-text">Doctor Prescriptions</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Complaints from Hostel">
-          <a class="nav-link" href="doctor_prescription.php">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Remarks by Staff">
+          <a class="nav-link" href="staff_remarks.php">
             <i class="fa fa-fw fa-user-md"></i>
-            <span class="nav-link-text">Complaints from Hostel</span>
+            <span class="nav-link-text">Remarks by Staff</span>
           </a>
         </li>
         </ul>
@@ -101,9 +101,9 @@ else
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-bed"></i>
               </div>
-              <div class="mr-5">Presence in hostel</div>
+              <div class="mr-5">Hostel Attendance</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
+            <a class="card-footer text-white clearfix small z-1" href="attendance.php">
               <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -119,7 +119,7 @@ else
               </div>
               <div class="mr-5">Doctor Prescriptions</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
+            <a class="card-footer text-white clearfix small z-1" href="doctor_prescription.php">
               <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -133,9 +133,9 @@ else
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-hand-rock-o"></i>
               </div>
-              <div class="mr-5">Complaints by Hostel</div>
+              <div class="mr-5">Remarks by Staff</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
+            <a class="card-footer text-white clearfix small z-1" href="staff_remarks.php">
               <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
