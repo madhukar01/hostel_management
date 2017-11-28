@@ -1,21 +1,29 @@
 $("#prescription").hide();
 $(document).ready(function(){
-    $.get("../hostel/backend/checkcouponallot.php", function(data){
-        var table_data = '<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">\
-        <thead>\
-          <tr>\
-            <th>Staff ID</th>\
-            <th>Remarks</th>\
-          </tr>\
-        </thead>\
-        <tbody>';
-       if(data)
+    var table_data = '<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">\
+    <thead>\
+      <tr>\
+      <b>\
+      <th>Date</th>\
+        <th>Prescription</th>\
+        </b>\
+      </tr>\
+    </thead>\
+    <tbody>';
+    $.get("../hostel/backend/return_prescription.php", function(data){
+       if(data.length > 0)
        {
             $("#prescription").hide();
-            table_data += "";
+            for(i=0; i<data.length; ++i)
+            {
+                temp = data[i].split(",")
+                if(temp[0] != "" && temp[1] != "")
+                    table_data += "<tr><td>"+temp[0]+"</td><td>"+temp[1]+"</td></tr>";
+            }
             table_data+= '</tbody></table>';
+            $("#prescription_table").html(table_data);
         }
        else
-        $("#remarks").show();
+        $("#prescription").show();
     });
 });

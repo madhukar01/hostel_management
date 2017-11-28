@@ -124,36 +124,42 @@ else
         </div>
         </div>
 
-      <div id="remarks_form">
+      <div>
+        <from id="remarks_form">
         <div class="form-group">
           <label for="student_usn">Student USN</label>
-          <input class="form-control" id="student_usn1" name="usn" type="text" aria-describedby="USN" placeholder="Enter student USN" required>
+          <input class="form-control" id="student_usn1" name="usn" type="text" aria-describedby="usnHelp1" placeholder="Enter student USN" required>
           <small id="usnHelp1" class="form-text text-muted"></small>
         </div>
         <div class="form-group">
           <label for="remarks">Remarks</label>
           <input class="form-control" id="remarks" name="desc" type="text" aria-describedby="remarksHelp" placeholder="Enter remarks" required>
-          <small id="remarksnHelp" class="form-text text-muted">Enter remarks</small>
+          <small id="remarksHelp" class="form-text text-muted">Enter remarks</small>
         </div>
         <a class="btn btn-primary" id="submit_button1" href="#">Submit</a>
+      </form>
       </div>
 
-      <div id="attendance_form">
+      <div>
+        <form id="attendance_form">
         <div class="form-group">
           <label for="student_usn">Student USN</label>
-          <input class="form-control" id="student_usn2" name="usn" type="text" aria-describedby="USN" placeholder="Enter student USN" required>
+          <input class="form-control" id="student_usn2" name="usn" type="text" aria-describedby="usnHelp2" placeholder="Enter student USN" required>
           <small id="usnHelp2" class="form-text text-muted"></small>
         </div>
         <a class="btn btn-primary" id="submit_button2" href="#">Mark Attendance</a>
+        </form>
       </div>
 
-      <div id="announcement_form">
+      <div>
+        <form id="announcement_form">
         <div class="form-group">
           <label for="announcement">Announcement</label>
-          <input class="form-control" id="announcement" name="desc" type="text" aria-describedby="remarksHelp" placeholder="Enter remarks" required>
-          <small id="remarksnHelp" class="form-text text-muted">Enter announcement</small>
+          <input class="form-control" id="announcement" name="desc" type="text" aria-describedby="remarksHelp" placeholder="Enter Announcement" required>
+          <small id="remarksHelp" class="form-text text-muted">Enter announcement</small>
         </div>
         <a class="btn btn-primary" id="submit_button3" href="#">Submit</a>
+        </form>
       </div>
 
       <div id="submit_success" class="alert alert-success">

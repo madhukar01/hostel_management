@@ -13,7 +13,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "INSERT INTO Prescription VALUES('$usn','$prescription');";
+$sql = "INSERT INTO Prescription VALUES('$day','$usn','$prescription');";
 
 $result = mysqli_query($conn, $sql);
 if ($result) {
@@ -21,6 +21,7 @@ if ($result) {
     
 }    
 else 
+{
     echo "2";
-
+}
 ?>
