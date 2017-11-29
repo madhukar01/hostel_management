@@ -44,7 +44,7 @@ else
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="dashboard_staff.php">
+          <a class="nav-link" href="dashboard_admin.php">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Dashboard</span>
           </a>
@@ -69,13 +69,13 @@ else
     <div class="container-fluid">
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
+          <a href="dashboard_admin.php">Dashboard</a>
         </li>
         <li class="breadcrumb-item active">Admin Dashboard</li>
       </ol>
       <div id="admin_buttons">
       <div class="row">
-        <div class="col-xl-3 col-sm-6 mb-3" id="add_staff">
+        <div class="col-xl-3 col-sm-6 mb-3" id="card1">
           <div class="card text-white bg-warning o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
@@ -91,7 +91,7 @@ else
             </a>
           </div>
         </div>
-        <div class="col-xl-3 col-sm-6 mb-3" id="add_doctor">
+        <div class="col-xl-3 col-sm-6 mb-3" id="card2">
           <div class="card text-white bg-success o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
@@ -107,7 +107,7 @@ else
             </a>
           </div>
         </div>
-        <div class="col-xl-3 col-sm-6 mb-3" id="add_mess">
+        <div class="col-xl-3 col-sm-6 mb-3" id="card3">
           <div class="card text-white bg-info o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
@@ -123,10 +123,25 @@ else
             </a>
           </div>
         </div>
-
+        <div class="col-xl-3 col-sm-6 mb-3" id="card7">
+          <div class="card text-white bg-danger o-hidden h-100">
+            <div class="card-body">
+              <div class="card-body-icon">
+                <i class="fa fa-fw fa-cutlery"></i>
+              </div>
+              <div class="mr-5">Add Counsellor</div>
+            </div>
+            <a class="card-footer text-white clearfix small z-1" id="add_coun_button" href="#">
+              <span class="float-left">Proceed Now</span>
+              <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
         </div>
         <div class="row">
-          <div class="col-xl-3 col-sm-6 mb-3" id="delete_staff">
+          <div class="col-xl-3 col-sm-6 mb-3" id="card4">
             <div class="card text-white bg-warning o-hidden h-100">
               <div class="card-body">
                 <div class="card-body-icon">
@@ -142,7 +157,7 @@ else
               </a>
             </div>
           </div>
-          <div class="col-xl-3 col-sm-6 mb-3" id="delete_doctor">
+          <div class="col-xl-3 col-sm-6 mb-3" id="card5">
             <div class="card text-white bg-success o-hidden h-100">
               <div class="card-body">
                 <div class="card-body-icon">
@@ -158,7 +173,7 @@ else
               </a>
             </div>
           </div>
-          <div class="col-xl-3 col-sm-6 mb-3" id="delete_mess">
+          <div class="col-xl-3 col-sm-6 mb-3" id="card6">
         <div class="card text-white bg-info o-hidden h-100">
           <div class="card-body">
             <div class="card-body-icon">
@@ -174,6 +189,24 @@ else
           </a>
         </div>
       </div>
+
+      <div class="col-xl-3 col-sm-6 mb-3" id="card8">
+        <div class="card text-white bg-danger o-hidden h-100">
+          <div class="card-body">
+            <div class="card-body-icon">
+              <i class="fa fa-fw fa-user-md"></i>
+            </div>
+            <div class="mr-5">Delete Counsellor</div>
+          </div>
+          <a class="card-footer text-white clearfix small z-1" id="delete_coun_button" href="#">
+            <span class="float-left">Proceed Now</span>
+            <span class="float-right">
+              <i class="fa fa-angle-right"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+
           </div>
       </div>
 
@@ -199,19 +232,19 @@ else
           <input class="form-control" id="staff_usn2" name="usn" type="text" aria-describedby="usnHelp2" placeholder="Enter staff username" required>
           <small id="usnHelp2" class="form-text text-muted"></small>
         </div>
-        <a class="btn btn-primary" id="submit_button2" href="#">Delete STaff</a>
+        <a class="btn btn-primary" id="submit_button2" href="#">Delete Staff</a>
       </form>
       </div>
 
       <div>
         <form id="add_doctor_form">
         <div class="form-group">
-          <label for="staff_usn1">Doctor Username</label>
+          <label for="doctor_usn1">Doctor Username</label>
           <input class="form-control" id="doctor_usn1" name="usn" type="text" aria-describedby="usnHelp3" placeholder="Enter doctor username" required>
           <small id="usnHelp3" class="form-text text-muted"></small>
         </div>
         <div class="form-group">
-          <label for="remarks">Doctor Password</label>
+          <label for="doctor_password">Doctor Password</label>
           <input class="form-control" id="doctor_password" name="password" type="password" aria-describedby="passwordsHelp" placeholder="Enter password" required>
           <small id="passwordsHelp" class="form-text text-muted"></small>
         </div>
@@ -221,11 +254,37 @@ else
       <div>
         <form id="delete_doctor_form">
         <div class="form-group">
-          <label for="staff_usn2">Doctor Username</label>
+          <label for="doctor_usn2">Doctor Username</label>
           <input class="form-control" id="doctor_usn2" name="usn" type="text" aria-describedby="usnHelp4" placeholder="Enter doctor username" required>
           <small id="usnHelp4" class="form-text text-muted"></small>
         </div>
         <a class="btn btn-primary" id="submit_button4" href="#">Delete Doctor</a>
+      </form>
+      </div>
+
+      <div>
+        <form id="add_coun_form">
+        <div class="form-group">
+          <label for="coun_usn1">Counsellor Username</label>
+          <input class="form-control" id="coun_usn1" name="usn" type="text" aria-describedby="usnHelp7" placeholder="Enter counsellor username" required>
+          <small id="usnHelp7" class="form-text text-muted"></small>
+        </div>
+        <div class="form-group">
+          <label for="coun_password">Counsellor Password</label>
+          <input class="form-control" id="coun_password" name="password" type="password" aria-describedby="passwordsHelp" placeholder="Enter password" required>
+          <small id="passwordsHelp" class="form-text text-muted"></small>
+        </div>
+        <a class="btn btn-primary" id="submit_button7" href="#">Add Counsellor</a>
+      </form>
+      </div>
+      <div>
+        <form id="delete_coun_form">
+        <div class="form-group">
+          <label for="coun_usn2">Counsellor Username</label>
+          <input class="form-control" id="coun_usn2" name="usn" type="text" aria-describedby="usnHelp8" placeholder="Enter counsellor username" required>
+          <small id="usnHelp8" class="form-text text-muted"></small>
+        </div>
+        <a class="btn btn-primary" id="submit_button8" href="#">Delete Counsellor</a>
       </form>
       </div>
 
@@ -235,6 +294,11 @@ else
           <label for="mess_name1">Mess Name</label>
           <input class="form-control" id="mess_name1" name="usn" type="text" aria-describedby="usnHelp5" placeholder="Enter mess name" required>
           <small id="usnHelp5" class="form-text text-muted"></small>
+        </div>
+        <div class="form-group">
+          <label for="mess_coupon">Number of Coupons</label>
+          <input class="form-control" id="mess_coupon" name="mess_coupon" type="number" aria-describedby="passwordsHelp" placeholder="Enter number of coupons" required>
+          <small id="passwordsHelp" class="form-text text-muted"></small>
         </div>
         <a class="btn btn-primary" id="submit_button5" href="#">Add Mess</a>
       </form>
@@ -255,9 +319,6 @@ else
       </div>
       <div id="submit_failure" class="alert alert-danger">
         <strong>Failure!</strong>There was an error while saving the data, Please try again !
-      </div>
-      <div id="submit_duplicate" class="alert alert-info">
-        <strong>Failure!</strong>Attendance has already been marked for the student for the day !
       </div>
     </div>
     <footer class="sticky-footer">
@@ -281,7 +342,7 @@ else
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-body">This will end your current session, Click logout to continue.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
             <a class="btn btn-primary" href="backend/logout.php">Logout</a>

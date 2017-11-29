@@ -51,6 +51,18 @@ function form_show($block)
     $($block).show();
 };
 
+function div_blur()
+{
+    $("#card1").css("opacity", "0.25");
+    $("#card2").css("opacity", "0.25");
+    $("#card3").css("opacity", "0.25");
+    $("#card4").css("opacity", "0.25");
+    $("#card5").css("opacity", "0.25");
+    $("#card6").css("opacity", "0.25");
+    $("#card7").css("opacity", "0.25");
+    $("#card8").css("opacity", "0.25");
+};
+
 function send_request(data)
 {
     $.post("../hostel/backend/room_booking.php", data, function(status){
@@ -95,6 +107,10 @@ $(document).ready(function(){
 $("#fresher_button").click(function(){
     $("#room_type_1").hide();
     $("#room_type_2").show();
+    div_blur();
+    $("#card1").css("opacity", "1");
+    $("#card7").css("opacity", "1");
+    $("#card8").css("opacity", "1");
     hide_form();
 });
 
@@ -102,18 +118,33 @@ $("#fresher_button").click(function(){
 $("#hostelite_button").click(function(){
     $("#room_type_2").hide();
     $("#room_type_1").show();
+    div_blur();
+    $("#card2").css("opacity", "1");
+    $("#card3").css("opacity", "1");
+    $("#card4").css("opacity", "1");
+    $("#card5").css("opacity", "1");
+    $("#card6").css("opacity", "1");
 });
 
 $("#new_block").click(function(){
     form_show("#new_block_button");
+    div_blur();
+    $("#card2").css("opacity", "1");
+    $("#card3").css("opacity", "1");
 });
 
 $("#mm_block").click(function(){
     form_show("#mm_block_button");
+    div_blur();
+    $("#card2").css("opacity", "1");
+    $("#card5").css("opacity", "1");
 });
 
 $("#mess_block").click(function(){
     form_show("#mess_block_button");
+    div_blur();
+    $("#card2").css("opacity", "1");
+    $("#card4").css("opacity", "1");
 });
 
 $("#new_block_button").click(function(){
@@ -182,18 +213,27 @@ $("#mm_block_button").click(function(){
 
 $("#ih_block_button").click(function(){
     hide_form();
+    div_blur();
+    $("#card2").css("opacity", "1");
+    $("#card6").css("opacity", "1");
     data = {block: "D"};
     send_request(data);
 });
 
 $("#nbx_block_button").click(function(){
     hide_form();
+    div_blur();
+    $("#card1").css("opacity", "1");
+    $("#card8").css("opacity", "1");
     data = {block: "E"};
     send_request(data);
 });
 
 $("#it_block_button").click(function(){
     hide_form();
+    div_blur();
+    $("#card1").css("opacity", "1");
+    $("#card7").css("opacity", "1");
     data = {block: "F"};
     send_request(data);
 });

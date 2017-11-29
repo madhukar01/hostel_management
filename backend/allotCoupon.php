@@ -21,16 +21,19 @@ if(mysqli_num_rows($result)>0)
 }
 else
 {
-	$sql1 = "SELECT * FROM Alloted_Coupon WHERE id=".$food;
-	$sql2 = "SELECT * FROM Coupon WHERE id=".$food;
-	$result1 = mysqli_query($conn, $sql1);
+    $food=trim($food);
+	$sql2 = "SELECT * FROM Coupon WHERE name='$food'";
+
 	$result2 = mysqli_query($conn, $sql2);
 	$row1 = mysqli_fetch_assoc($result2);
+	$id=$row1['id'];
+	$sql1 = "SELECT * FROM Alloted_Coupon WHERE id= $id";
+	$result1 = mysqli_query($conn, $sql1);
 
 	if ($row1['available'] > mysqli_num_rows($result1)) {
 	    // output data of each row
 	    
-	  	$sql = "INSERT INTO Alloted_Coupon VALUES('".$usn."',".$food.")";
+	  	$sql = "INSERT INTO Alloted_Coupon VALUES('".$usn."',".$row1['id'].")";
 		$result = mysqli_query($conn, $sql);
 		if ($result) {
 			echo "1";

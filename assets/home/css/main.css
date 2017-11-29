@@ -3825,7 +3825,9 @@
 }
 /* Modal Content/Box */
 .modal-content {
-    margin: auto; 
+	background-color: #354886;
+	margin: auto; 
+	border: 1px solid rgb(138, 138, 138);
 	height: 30%;
     width: 40%; /* Could be more or less, depending on screen size */
 }

@@ -45,11 +45,11 @@ if (!$result) {
 $sql = "INSERT INTO WadenDate VALUES('$usn','$warden_date');";
 $result = mysqli_query($conn, $sql);
 if (!$result) {
-    echo "Waden Date insert unsuccessful";
+    echo "Warden Date insert unsuccessful";
     die("");
  
 }
-echo "0";
+echo "<script>alert('Registered successfully, Please login to continue !'); window.location = 'login.php';</script>";
 mysqli_close($conn);
 
 ?> 

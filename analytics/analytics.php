@@ -1,13 +1,3 @@
-<?php
-session_start();
-if(!isset($_SESSION["usn"]))
-{
-	header("Location: login.php");
-	die();
-}
-else
-$usn = $_SESSION["usn"];
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,29 +8,32 @@ $usn = $_SESSION["usn"];
   <meta name="description" content="">
   <meta name="author" content="">
   <title>PES Boys Hostel Dashboard</title>
-  <!-- Bootstrap CSS-->
-  <link href="assets/dashboard/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/dashboard/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link href="assets/dashboard/css/dashboard.css" rel="stylesheet">
+  <!-- Bootstrap core CSS-->
+  <link href="../assets/dashboard/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/dashboard/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="../assets/dashboard/css/dashboard.css" rel="stylesheet">
+  <script src= "Chart.bundle.js"></script>	
+	<script src= "Chart.min.js"></script>
+  <script src="../assets/dashboard/js/analytics.js"></script>
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="dashboard.php">PES Hostel</a>
+    <a class="navbar-brand" href="../dashboard.php">PES Hostel</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="dashboard.php">
+          <a class="nav-link" href="../dashboard_student.php">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Analytics">
-          <a class="nav-link" href="analytics.php">
+          <a class="nav-link" href="../analytics/analytics.php">
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Analytics</span>
           </a>
@@ -52,20 +45,17 @@ $usn = $_SESSION["usn"];
           </a>
           <ul class="sidenav-second-level collapse" id="collapseMulti">
           <li>
-            <a href="allot_room.php">Room Allotment</a>
+            <a href="../allot_room.php">Room Allotment</a>
           </li>
           <li>
-            <a href="allot_food.php">Food Coupons</a>
-          </li>
-          <li>
-            <a href="contact.html">Contact Office</a>
+            <a href="../allot_food.php">Food Coupons</a>
           </li>
         </ul>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="blank.php">
-            <i class="fa fa-fw fa-link"></i>
-            <span class="nav-link-text">Link</span>
+          <a class="nav-link" href="../counselling_student.php">
+            <i class="fa fa-fw fa-question-circle"></i>
+            <span class="nav-link-text">Counselling</span>
           </a>
         </li>
       </ul>
@@ -77,35 +67,11 @@ $usn = $_SESSION["usn"];
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
-      <!--Announcement section-->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fa fa-fw fa-envelope"></i>
-            <span class="d-lg-none">Announcements
-              <span class="badge badge-pill badge-primary">12 New</span>
-            </span>
-            <span class="indicator text-primary d-none d-lg-block">
-              <i class="fa fa-fw fa-circle"></i>
-            </span>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="messagesDropdown">
-            <h6 class="dropdown-header">Announcements:</h6>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <strong>Warden Yama</strong>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">Door to hell will be open between 10AM to 7PM on 29th of this month. Visit office for more info on this.
-              </div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item small" href="#">View all messages</a>
-          </div>
-        </li>
         <!-- Notification section-->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fa fa-fw fa-bell"></i>
-            <span class="d-lg-none">Notifications
+            <span class="d-lg-none">Announcements
               <span class="badge badge-pill badge-warning">6 New</span>
             </span>
             <span class="indicator text-warning d-none d-lg-block">
@@ -113,31 +79,18 @@ $usn = $_SESSION["usn"];
             </span>
           </a>
           <div class="dropdown-menu" aria-labelledby="alertsDropdown">
-            <h6 class="dropdown-header">Notifications:</h6>
+            <h6 class="dropdown-header">Announcements:</h6>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">
               <span class="text-success">
                 <strong>
-                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
+                  <i class="fa fa-mail-forward"></i>Welcome to HMS</strong>
               </span>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">Server is up and running.</div>
+              <div class="dropdown-message small">HMS Server is live</div>
             </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item small" href="#">View all alerts</a>
+            <a class="dropdown-item small" href="../alerts.php">View all alerts</a>
           </div>
-        </li>
-        <li class="nav-item">
-          <form class="form-inline my-2 my-lg-0 mr-lg-2">
-            <div class="input-group">
-              <input class="form-control" type="text" placeholder="Search for...">
-              <span class="input-group-btn">
-                <button class="btn btn-primary" type="button">
-                  <i class="fa fa-search"></i>
-                </button>
-              </span>
-            </div>
-          </form>
         </li>
         <li class="nav-item">
           <a class="nav-link" data-toggle="modal" data-target="#logoutmodal">
@@ -151,17 +104,75 @@ $usn = $_SESSION["usn"];
     <div class="container-fluid">
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="dashboard.php">Dashboard</a>
+          <a href="../dashboard_student.php">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">Blank Page</li>
+        <li class="breadcrumb-item active">Analytics</li>
       </ol>
-      <div class="row">
-        <div class="col-12">
-          <h1>Blank</h1>
-          <p>Blank Blank Blank Blank</p>
+      <!-- Area Chart-->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-area-chart"></i> Area Chart</div>
+        <div class="card-body">
+        <canvas id="mychart"></canvas>
+	<div id="im"></div>
         </div>
+
+        <div class="card-footer small text-muted">Updated yesterday at 8:00 PM</div>
       </div>
-    </div>
+<?php
+$myfile = fopen("dataset.csv", "r") or die("Unable to open file!");
+// Output one line until end-of-file
+//while(!feof($myfile)) {
+  $headings = explode(",",fgets($myfile));
+	$cnt = 0;	
+	while(!feof($myfile)){
+		$data[$cnt] = explode(",",fgets($myfile));
+		$cnt++;
+	}
+	for ( $i = 0 ; $i < $cnt-1 ; $i++)
+	{
+		$usn[$i] = $data[$i][0];
+		$room1[$i] = $data[$i][1];
+		$grade1[$i] = $data[$i][2];
+		$room2[$i] = $data[$i][3];
+		$grade2[$i] = $data[$i][4];
+	}
+	for ( $i = 0 ; $i < $cnt-1 ; $i++)
+	{	
+			if($grade2[$i] >= $grade1[$i]) $change[$i] = 1;
+			else $change[$i] = 0;
+	}
+	$improv = [];
+	$reduce = [];
+	$redroom =[];
+	$rooom = [];
+	for ( $i = 0 ; $i < $cnt-1 ; $i++)
+	{	
+		if($change[$i] == 1) {
+			array_push($improv,$usn[$i]);
+			array_push($rooom,$room2[$i]);
+			//$improv[0] = $usn[$i];
+			//$rooom[0] = $room2[$i]; 
+	}
+		else 
+		{
+			array_push($reduce,$usn[$i]);
+			array_push($redroom,$room2[$i]);
+		}
+	}
+$reduce1 = json_encode($reduce);
+$redroom1 = json_encode($redroom);
+	$improv1 = json_encode($improv);
+	$rooom1 = json_encode($rooom);
+$usn1 = json_encode($usn);
+$grade11 = json_encode($grade1);
+$grade21 = json_encode($grade2);
+echo "<script> drawer($usn1,$grade11,$grade21);</script>";
+echo "<script> improver($improv1,$rooom1,$reduce1,$redroom1);</script>";
+
+//}
+fclose($myfile);
+?>
     <!-- /.container-fluid-->
     <footer class="sticky-footer">
       <div class="container">
@@ -184,21 +195,20 @@ $usn = $_SESSION["usn"];
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-body">This will end your current session, Click logout to continue.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="backend/logout.php">Logout</a>
+            <a class="btn btn-primary" href="../backend/logout.php">Logout</a>
           </div>
         </div>
       </div>
     </div>
     <!-- Bootstrap JS-->
-    <script src="assets/dashboard/vendor/jquery/jquery.min.js"></script>
-    <script src="assets/dashboard/vendor/popper/popper.min.js"></script>
-    <script src="assets/dashboard/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/dashboard/vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="assets/dashboard/js/dashboard.min.js"></script>
+    <script src="../assets/dashboard/vendor/jquery/jquery.min.js"></script>
+    <script src="../assets/dashboard/vendor/popper/popper.min.js"></script>
+    <script src="../assets/dashboard/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/dashboard/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../assets/dashboard/js/dashboard.min.js"></script>
   </div>
 </body>
-
 </html>
