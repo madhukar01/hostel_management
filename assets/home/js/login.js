@@ -8,13 +8,13 @@ $("#username").focusout(function() {
             //alert("Data: " + data );
             if(data == 1) 
             {
-                $("#usernameHelp").html("<font color='blue'>User found, Please enter password to login !</font>");
+                $("#usernameHelp").html("<font color='white'><strong>User found, Please enter password to login !</strong></font>");
                 $("#submit_button").prop("disabled", false);
                 $("#password").prop("disabled", false);
             }
             else
             {
-                $("#usernameHelp").html("<font color='red'>User not found, Please register to proceed !</font>");
+                $("#usernameHelp").html("<font color='white'><strong>User not found, Please register to proceed !</strong></font>");
                 $("#submit_button").prop("disabled", true);
                 $("#password").prop("disabled", true);
             }
@@ -26,7 +26,7 @@ $("#submit_button").click(function(){
     $.post("../hostel/backend/validate_login.php", $('#login_form').serialize(), function(data){
         if(data == 0)
         {
-            $("#loginHelp").html("<font color='green'>Login Successful !</font>");
+            $("#loginHelp").html("<font color='white'><strong>Login Successful !</strong></font>");
             setTimeout(function() {
                 window.location.href = "dashboard.php";
               }, 1000);
@@ -34,7 +34,7 @@ $("#submit_button").click(function(){
         }
         else if(data == 1)
         {
-            $("#loginHelp").html("<font color='red'>Wrong password entered ! Please try again.</font>");
+            $("#loginHelp").html("<font color='white'><strong>Wrong password entered ! Please try again.</strong></font>");
             //alert("Wrong password");
         } 
     });
