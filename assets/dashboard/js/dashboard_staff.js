@@ -81,9 +81,18 @@ function reset_form()
     $("#usnHelp2").html("");
 };
 
+function blur_div()
+{
+    $("#card1").css("opacity", "0.25");
+    $("#card2").css("opacity", "0.25");
+    $("#card3").css("opacity", "0.25");
+};
+
 $("#attendance_button").click(function(){
    
     reset_form();
+    blur_div();
+    $("#card1").css("opacity", "1");
     $("#attendance_form").show();
     $("#remarks_form").hide();
     $("#announcement_form").hide();
@@ -93,6 +102,8 @@ $("#attendance_button").click(function(){
     });
 
 $("#remarks_button").click(function(){
+    blur_div();
+    $("#card2").css("opacity", "1");
     $("#attendance_form").hide();
     $("#remarks_form").show();
     $("#announcement_form").hide();
@@ -102,6 +113,8 @@ $("#remarks_button").click(function(){
     });
 
 $("#announcement_button").click(function(){
+    blur_div();
+    $("#card3").css("opacity", "1");
     $("#attendance_form").hide();
     $("#remarks_form").hide();
     $("#announcement_form").show();

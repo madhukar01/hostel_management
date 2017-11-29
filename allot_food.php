@@ -19,6 +19,7 @@ else
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,7 +27,7 @@ else
   <meta name="description" content="">
   <meta name="author" content="">
   <title>PES Boys Hostel Dashboard</title>
-  <!-- Bootstrap CSS-->
+  <!-- Bootstrap core CSS-->
   <link href="assets/dashboard/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/dashboard/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link href="assets/dashboard/css/dashboard.css" rel="stylesheet">
@@ -42,13 +43,13 @@ else
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="dashboard.php">
+          <a class="nav-link" href="dashboard_student.php">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Analytics">
-          <a class="nav-link" href="analytics.php">
+          <a class="nav-link" href="analytics/analytics.php">
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Analytics</span>
           </a>
@@ -59,21 +60,18 @@ else
             <span class="nav-link-text">Menu</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseMulti">
-            <li>
-              <a href="allot_room.php">Room Allotment</a>
-            </li>
-            <li>
-              <a href="allot_food.php">Food Coupons</a>
-            </li>
-            <li>
-              <a href="contact.html">Contact Office</a>
-            </li>
-          </ul>
+          <li>
+            <a href="allot_room.php">Room Allotment</a>
+          </li>
+          <li>
+            <a href="allot_food.php">Food Coupons</a>
+          </li>
+        </ul>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="blank.php">
-            <i class="fa fa-fw fa-link"></i>
-            <span class="nav-link-text">Link</span>
+          <a class="nav-link" href="counselling_student.php">
+            <i class="fa fa-fw fa-question-circle"></i>
+            <span class="nav-link-text">Counselling</span>
           </a>
         </li>
       </ul>
@@ -85,35 +83,11 @@ else
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
-      <!--Announcement section-->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fa fa-fw fa-envelope"></i>
-            <span class="d-lg-none">Announcements
-              <span class="badge badge-pill badge-primary">12 New</span>
-            </span>
-            <span class="indicator text-primary d-none d-lg-block">
-              <i class="fa fa-fw fa-circle"></i>
-            </span>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="messagesDropdown">
-            <h6 class="dropdown-header">Announcements:</h6>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <strong>Warden Yama</strong>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">Door to hell will be open between 10AM to 7PM on 29th of this month. Visit office for more info on this.
-              </div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item small" href="#">View all messages</a>
-          </div>
-        </li>
         <!-- Notification section-->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fa fa-fw fa-bell"></i>
-            <span class="d-lg-none">Notifications
+            <span class="d-lg-none">Announcements
               <span class="badge badge-pill badge-warning">6 New</span>
             </span>
             <span class="indicator text-warning d-none d-lg-block">
@@ -121,31 +95,18 @@ else
             </span>
           </a>
           <div class="dropdown-menu" aria-labelledby="alertsDropdown">
-            <h6 class="dropdown-header">Notifications:</h6>
+            <h6 class="dropdown-header">Announcements:</h6>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">
               <span class="text-success">
                 <strong>
-                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
+                  <i class="fa fa-mail-forward"></i>Welcome to HMS</strong>
               </span>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">Server is up and running.</div>
+              <div class="dropdown-message small">HMS Server is live</div>
             </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item small" href="#">View all alerts</a>
+            <a class="dropdown-item small" href="alerts.php">View all alerts</a>
           </div>
-        </li>
-        <li class="nav-item">
-          <form class="form-inline my-2 my-lg-0 mr-lg-2">
-            <div class="input-group">
-              <input class="form-control" type="text" placeholder="Search for...">
-              <span class="input-group-btn">
-                <button class="btn btn-primary" type="button">
-                  <i class="fa fa-search"></i>
-                </button>
-              </span>
-            </div>
-          </form>
         </li>
         <li class="nav-item">
           <a class="nav-link" data-toggle="modal" data-target="#logoutmodal">
@@ -159,61 +120,14 @@ else
     <div class="container-fluid">
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="dashboard.php">Dashboard</a>
+          <a href="dashboard_student.php">Dashboard</a>
         </li>
         <li class="breadcrumb-item active">Food Coupon Allotment</li>
       </ol>
       <div id="food_allotment">
       <label for="mess_type">Mess Type</label>
       <div class="row" id="mess_type">
-        <div class="col-xl-3 col-sm-6 mb-5">
-          <div class="card text-white bg-danger o-hidden h-100">
-            <div class="card-body">
-              <div class="card-body-icon">
-                <i class="fa fa-fw fa-cutlery"></i>
-              </div>
-              <div class="mr-5">Food Court</div>
-            </div>
-            <a id="food_court_button" class="card-footer text-white clearfix small z-1" href="#">
-              <span class="float-left">Book Now</span>
-              <span class="float-right">
-                <i class="fa fa-angle-right"></i>
-              </span>
-            </a>
-          </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 mb-5">
-            <div class="card text-white bg-warning o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fa fa-fw fa-spoon"></i>
-                </div>
-                <div class="mr-5">Hostel Mess</div>
-              </div>
-              <a id="hostel_mess_button" class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">Book Now</span>
-                <span class="float-right">
-                  <i class="fa fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-        <div class="col-xl-3 col-sm-6 mb-5">
-          <div class="card text-white bg-info o-hidden h-100">
-            <div class="card-body">
-              <div class="card-body-icon">
-                <i class="fa fa-fw fa-lemon-o"></i>
-              </div>
-              <div class="mr-5">Aman Rasoi</div>
-            </div>
-            <a id="aman_rasoi_button" class="card-footer text-white clearfix small z-1" href="#">
-              <span class="float-left">Book Now</span>
-              <span class="float-right">
-                <i class="fa fa-angle-right"></i>
-              </span>
-            </a>
-          </div>
-        </div>
+        
       </div>
       </div>
       <div id="booking_success" class="alert alert-success">

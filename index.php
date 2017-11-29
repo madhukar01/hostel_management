@@ -71,9 +71,9 @@ if(isset($_SESSION["usn"]))
 									<label style="display: inline-block; padding:2px;">Admin<input type="radio" name="user_type" value="admin" /></label>
 							</div>
 							<input type="text" placeholder="Enter Username" name="usn" id="username" aria-describedby="usernameHelp" required >
-							<small id="usernameHelp" class="form-text text-muted"></small>
+							<font color='white'><small id="usernameHelp" class="form-text text-muted"></small></font>
 							<input type="password" placeholder="Enter Password" name="password" id="password" aria-describedby="loginHelp" required> 
-							<small id="loginHelp" class="form-text text-muted"></small><p>
+							<font color='white'><small id="loginHelp" class="form-text text-muted"></small></font><p>
 							<button class="button small" id="submit_button">Login</button>
 							<button class="button small cancelbtn" type="button" onclick="document.getElementById('login').style.display='none'">Cancel</button>
 							
@@ -183,6 +183,6 @@ if(isset($_SESSION["usn"]))
 			<script src="assets/home/js/main.js"></script>
 			<script src="assets/home/js/login.js"></script>
 			<script src="assets/home/js/preloader.js"></script>
-			<script src="assets/home/js/modernizr.js"></script>
+			<script src="assets/home/js/modernizr.min.js"></script>
 	</body>
 </html>

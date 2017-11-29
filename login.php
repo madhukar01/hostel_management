@@ -58,12 +58,12 @@ if(isset($_SESSION["usn"]))
           <div class="form-group">
             <label for="username">Username</label>
             <input class="form-control" id="username" name="usn" type="text" aria-describedby="usernameHelp" placeholder="Enter username" required>
-            <small id="usernameHelp" class="form-text text-muted"></small>
+            <font color='red'><small id="usernameHelp" class="form-text text-muted"></small></font>
           </div>
           <div class="form-group">
             <label for="password">Password</label>
             <input class="form-control" id="password" type="password" aria-describedby="loginHelp" name="password" placeholder="Password" required>
-            <small id="loginHelp" class="form-text text-muted"></small>
+            <font color='blue'><small id="loginHelp" class="form-text text-muted"></small></font>
           </div>
           </div>
           <a class="btn btn-primary m-3" id="submit_button">Login</a>

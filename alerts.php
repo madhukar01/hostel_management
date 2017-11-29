@@ -27,7 +27,7 @@ else
   <meta name="description" content="">
   <meta name="author" content="">
   <title>PES Boys Hostel Dashboard</title>
-  <!-- Bootstrap CSS-->
+  <!-- Bootstrap core CSS-->
   <link href="assets/dashboard/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/dashboard/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link href="assets/dashboard/css/dashboard.css" rel="stylesheet">
@@ -43,13 +43,13 @@ else
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="dashboard.php">
+          <a class="nav-link" href="dashboard_student.php">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Analytics">
-          <a class="nav-link" href="analytics.php">
+          <a class="nav-link" href="analytics/analytics.php">
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Analytics</span>
           </a>
@@ -66,15 +66,12 @@ else
           <li>
             <a href="allot_food.php">Food Coupons</a>
           </li>
-          <li>
-            <a href="contact.html">Contact Office</a>
-          </li>
         </ul>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="blank.php">
-            <i class="fa fa-fw fa-link"></i>
-            <span class="nav-link-text">Link</span>
+          <a class="nav-link" href="counselling_student.php">
+            <i class="fa fa-fw fa-question-circle"></i>
+            <span class="nav-link-text">Counselling</span>
           </a>
         </li>
       </ul>
@@ -86,35 +83,11 @@ else
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
-      <!--Announcement section-->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fa fa-fw fa-envelope"></i>
-            <span class="d-lg-none">Announcements
-              <span class="badge badge-pill badge-primary">12 New</span>
-            </span>
-            <span class="indicator text-primary d-none d-lg-block">
-              <i class="fa fa-fw fa-circle"></i>
-            </span>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="messagesDropdown">
-            <h6 class="dropdown-header">Announcements:</h6>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <strong>Warden Yama</strong>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">Door to hell will be open between 10AM to 7PM on 29th of this month. Visit office for more info on this.
-              </div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item small" href="#">View all messages</a>
-          </div>
-        </li>
         <!-- Notification section-->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fa fa-fw fa-bell"></i>
-            <span class="d-lg-none">Notifications
+            <span class="d-lg-none">Announcements
               <span class="badge badge-pill badge-warning">6 New</span>
             </span>
             <span class="indicator text-warning d-none d-lg-block">
@@ -122,31 +95,18 @@ else
             </span>
           </a>
           <div class="dropdown-menu" aria-labelledby="alertsDropdown">
-            <h6 class="dropdown-header">Notifications:</h6>
+            <h6 class="dropdown-header">Announcements:</h6>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">
               <span class="text-success">
                 <strong>
-                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
+                  <i class="fa fa-mail-forward"></i>Welcome to HMS</strong>
               </span>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">Server is up and running.</div>
+              <div class="dropdown-message small">HMS Server is live</div>
             </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item small" href="#">View all alerts</a>
+            <a class="dropdown-item small" href="alerts.php">View all alerts</a>
           </div>
-        </li>
-        <li class="nav-item">
-          <form class="form-inline my-2 my-lg-0 mr-lg-2">
-            <div class="input-group">
-              <input class="form-control" type="text" placeholder="Search for...">
-              <span class="input-group-btn">
-                <button class="btn btn-primary" type="button">
-                  <i class="fa fa-search"></i>
-                </button>
-              </span>
-            </div>
-          </form>
         </li>
         <li class="nav-item">
           <a class="nav-link" data-toggle="modal" data-target="#logoutmodal">
@@ -155,50 +115,23 @@ else
       </ul>
     </div>
   </nav>
-
   <div class="content-wrapper">
     <div class="container-fluid">
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
+          <a href="dashboard_student.php">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">Analytics</li>
+        <li class="breadcrumb-item active">My Dashboard</li>
       </ol>
-      <!-- Area Chart-->
-      <div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-area-chart"></i> Area Chart</div>
-        <div class="card-body">
-          <canvas id="myAreaChart" width="100%" height="30"></canvas>
-        </div>
-        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      <div id="alerts" class="container">
+
+        
       </div>
-      <div class="row">
-        <div class="col-lg-8">
-          <!-- Bar Chart Card-->
-          <div class="card mb-3">
-            <div class="card-header">
-              <i class="fa fa-bar-chart"></i> Bar Chart</div>
-            <div class="card-body">
-              <canvas id="myBarChart" width="100" height="50"></canvas>
-            </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <!-- Pie Chart Card-->
-          <div class="card mb-3">
-            <div class="card-header">
-              <i class="fa fa-pie-chart"></i> Pie Chart</div>
-            <div class="card-body">
-              <canvas id="myPieChart" width="100%" height="100"></canvas>
-            </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-          </div>
-        </div>
       </div>
     </div>
-    <!-- /.container-fluid-->
+    <div id="failure" class="alert alert-danger">
+        <strong>Failure!</strong> Unfortunately we are not able to fetch announcements at the moment. Please try again later !
+      </div>
     <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
@@ -220,7 +153,7 @@ else
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-body">This will end your current session, Click logout to continue.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
             <a class="btn btn-primary" href="backend/logout.php">Logout</a>
@@ -228,15 +161,13 @@ else
         </div>
       </div>
     </div>
-    <!-- Bootstrap JS-->
+    <!-- Bootstrap core JavaScript-->
     <script src="assets/dashboard/vendor/jquery/jquery.min.js"></script>
     <script src="assets/dashboard/vendor/popper/popper.min.js"></script>
     <script src="assets/dashboard/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/dashboard/vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="assets/dashboard/vendor/chart.js/Chart.min.js"></script>
     <script src="assets/dashboard/js/dashboard.min.js"></script>
-    <script src="assets/dashboard/js/dashboard-charts.min.js"></script>
+    <script src="assets/dashboard/js/alert.js"></script>
   </div>
 </body>
-
 </html>

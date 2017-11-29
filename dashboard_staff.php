@@ -30,7 +30,6 @@ else
   <!-- Bootstrap core CSS-->
   <link href="assets/dashboard/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/dashboard/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link href="assets/dashboard/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <link href="assets/dashboard/css/dashboard.css" rel="stylesheet">
 </head>
 
@@ -69,12 +68,12 @@ else
     <div class="container-fluid">
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
+          <a href="dashboard_staff.php">Dashboard</a>
         </li>
         <li class="breadcrumb-item active">Staff Dashboard</li>
       </ol>
       <div class="row" id="staff_buttons">
-        <div class="col-xl-3 col-sm-6 mb-3">
+        <div class="col-xl-3 col-sm-6 mb-3" id="card1">
           <div class="card text-white bg-primary o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
@@ -90,7 +89,7 @@ else
             </a>
           </div>
         </div>
-        <div class="col-xl-3 col-sm-6 mb-3">
+        <div class="col-xl-3 col-sm-6 mb-3" id="card2">
           <div class="card text-white bg-danger o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
@@ -106,7 +105,7 @@ else
             </a>
           </div>
         </div>
-        <div class="col-xl-3 col-sm-6 mb-3">
+        <div class="col-xl-3 col-sm-6 mb-3" id="card3">
           <div class="card text-white bg-warning o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
@@ -193,7 +192,7 @@ else
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-body">This will end your current session, Click logout to continue.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
             <a class="btn btn-primary" href="backend/logout.php">Logout</a>

@@ -67,6 +67,34 @@ else if($user_type=='staff')
         echo "0";
     }
 }
+else if($user_type=='admin')
+{
+    $sql = "SELECT * FROM Waden WHERE id='$usn';";
+    
+    $result = mysqli_query($conn, $sql);
+    
+    if (mysqli_num_rows($result) > 0) {
+        echo "1";
+    } 
+    else
+    {
+        echo "0";
+    }
+}
+else if($user_type=='counsellor')
+{
+    $sql = "SELECT * FROM Counsellor WHERE id='$usn';";
+    
+    $result = mysqli_query($conn, $sql);
+    
+    if (mysqli_num_rows($result) > 0) {
+        echo "1";
+    } 
+    else
+    {
+        echo "0";
+    }
+}
 
 mysqli_close($conn);
 
