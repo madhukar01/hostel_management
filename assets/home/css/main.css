@@ -3781,9 +3781,9 @@
     width: 100%;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid #ccc;
+    border: 1px solid rgb(12, 12, 12);
 	box-sizing: border-box;
-	background-color: rgba(0,0,0,0.4);
+	background-color: rgba(104, 101, 101, 0.4);
 }
 
 .modal button {
@@ -3806,7 +3806,7 @@
 .modal .imgcontainer {
     text-align: center;
 	position: relative;
-	background: rgb(255, 255, 255);
+	background: #354886;
 }
 
 .modal img.avatar {
@@ -3817,7 +3817,7 @@
 
 .modal .container {
 	padding: 2% 7% 2% 7%;
-	background-color: rgb(255, 255, 255);
+	background: #354886;
 }
 
 .modal label{
@@ -3825,9 +3825,7 @@
 }
 /* Modal Content/Box */
 .modal-content {
-    background-color: #fefefe;
     margin: auto; 
-	border: 1px solid #888;
 	height: 30%;
     width: 40%; /* Could be more or less, depending on screen size */
 }

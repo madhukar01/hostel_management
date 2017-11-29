@@ -14,10 +14,19 @@ if(isset($_SESSION["usn"]))
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/home/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/home/css/main.css" />
+		<link rel="stylesheet" href="assets/home/css/preloader.css" />
+		<link rel="stylesheet" href="assets/home/css/normalize.css" />
+
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/home/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/home/css/ie8.css" /><![endif]-->
 	</head>
 	<body>
+	<div id="loader-wrapper">
+    <div id="loader"></div>
+ 
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+ 	</div>
 
 		<!-- Page Wrapper -->
 			<div id="page-wrapper">
@@ -64,7 +73,7 @@ if(isset($_SESSION["usn"]))
 							<input type="text" placeholder="Enter Username" name="usn" id="username" aria-describedby="usernameHelp" required >
 							<small id="usernameHelp" class="form-text text-muted"></small>
 							<input type="password" placeholder="Enter Password" name="password" id="password" aria-describedby="loginHelp" required> 
-							<small id="loginHelp" class="form-text text-muted"></small>
+							<small id="loginHelp" class="form-text text-muted"></small><p>
 							<button class="button small" id="submit_button">Login</button>
 							<button class="button small cancelbtn" type="button" onclick="document.getElementById('login').style.display='none'">Cancel</button>
 							
@@ -173,5 +182,7 @@ if(isset($_SESSION["usn"]))
 			<!--[if lte IE 8]><script src="assets/home/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/home/js/main.js"></script>
 			<script src="assets/home/js/login.js"></script>
+			<script src="assets/home/js/preloader.js"></script>
+			<script src="assets/home/js/modernizr.js"></script>
 	</body>
 </html>
