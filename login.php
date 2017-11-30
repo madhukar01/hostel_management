@@ -50,6 +50,11 @@ if(isset($_SESSION["usn"]))
                   <span class="custom-control-description">Doctor</span>
                 </label>
                 <label class="custom-control custom-radio">
+                  <input id="radio5" name="user_type" type="radio" class="custom-control-input" value="counsellor">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">Counsellor</span>
+                </label>
+                <label class="custom-control custom-radio">
                   <input id="radio5" name="user_type" type="radio" class="custom-control-input" value="admin">
                   <span class="custom-control-indicator"></span>
                   <span class="custom-control-description">Admin</span>

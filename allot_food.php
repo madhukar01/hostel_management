@@ -54,6 +54,12 @@ else
             <span class="nav-link-text">Analytics</span>
           </a>
         </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Counselling">
+          <a class="nav-link" href="counselling_student.php">
+            <i class="fa fa-fw fa-question-circle"></i>
+            <span class="nav-link-text">Counselling</span>
+          </a>
+        </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-sitemap"></i>
@@ -109,7 +115,6 @@ else
       </ul>
     </div>
   </nav>
-
   <div class="content-wrapper">
     <div class="container-fluid">
       <ol class="breadcrumb">

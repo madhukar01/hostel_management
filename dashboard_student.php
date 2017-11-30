@@ -54,6 +54,12 @@ else
             <span class="nav-link-text">Analytics</span>
           </a>
         </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Counselling">
+          <a class="nav-link" href="counselling_student.php">
+            <i class="fa fa-fw fa-question-circle"></i>
+            <span class="nav-link-text">Counselling</span>
+          </a>
+        </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-sitemap"></i>
@@ -160,6 +166,22 @@ else
               <div class="mr-5">Food coupon</div>
             </div>
             <a class="card-footer text-white clearfix small z-1" href="allot_food.php">
+              <span class="float-left">View Details</span>
+              <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-3">
+          <div class="card text-white bg-info o-hidden h-100">
+            <div class="card-body">
+              <div class="card-body-icon">
+                <i class="fa fa-fw fa-bed"></i>
+              </div>
+              <div class="mr-5">Counselling</div>
+            </div>
+            <a class="card-footer text-white clearfix small z-1" href="counselling_student.php">
               <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
