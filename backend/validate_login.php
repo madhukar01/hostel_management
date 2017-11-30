@@ -152,4 +152,32 @@ else if($user_type=='admin')
 
 	mysqli_close($conn);
 }
+else if($user_type=='counsellor')
+{
+	$sql = "SELECT * FROM Counsellor WHERE id='$usn'";
+
+	$result = mysqli_query($conn, $sql);
+
+	if (mysqli_num_rows($result) > 0) {
+	    // output data of each row
+	    $row = mysqli_fetch_assoc($result);
+	    if($password==$row['paswd'])
+	    {
+	        $_SESSION["user_type"]="counsellor";
+	        $_SESSION['usn']="$usn";
+	    	echo "0"; 	
+	    }
+	    else
+	    {
+	    	echo "1";
+	    }
+	 
+	} 
+	else
+	{
+	    echo "2";
+	}
+
+	mysqli_close($conn);
+}
 ?> 

@@ -27,6 +27,11 @@ else
     header("Location: dashboard_doctor.php");
     die();
   }
+  else if($_SESSION["user_type"] == "counsellor" )
+  {
+    header("Location: dashboard_counsellor.php");
+    die();
+  }
   else if($_SESSION["user_type"] == "admin" )
   {
     header("Location: dashboard_admin.php");

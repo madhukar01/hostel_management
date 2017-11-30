@@ -67,6 +67,7 @@ if(isset($_SESSION["usn"]))
 									<label style="display: inline-block; padding:2px;">Parent<input type="radio" name="user_type" value="parent" /></label>
 									<label style="display: inline-block; padding:2px;">Staff<input type="radio" name="user_type" value="staff" /></label>
 									<label style="display: inline-block; padding:2px;">Doctor<input type="radio" name="user_type" value="doctor" /></label>
+									<label style="display: inline-block; padding:2px;">Counsellor<input type="radio" name="user_type" value="counsellor" /></label>									
 									<label style="display: inline-block; padding:2px;">Admin<input type="radio" name="user_type" value="admin" /></label>
 							</div>
 							<input type="text" placeholder="Enter Username" name="usn" id="username" aria-describedby="usernameHelp" required >
