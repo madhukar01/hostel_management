@@ -49,7 +49,7 @@ if (!$result) {
     die("");
  
 }
-echo "<script>alert('Registered successfully, Please login to continue !'); window.location = 'login.php';</script>";
+echo "<script>alert('Registered successfully, Please login to continue !'); window.location = '../login.php';</script>";
 mysqli_close($conn);
 
 ?> 

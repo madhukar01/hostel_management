@@ -45,9 +45,8 @@ if(isset($_SESSION["usn"]))
 							<h2>Menu</h2>
 							<ul class="links">
 								<li><a href="index.php">Home</a></li>
-								<li><a href="#">Facilities</a></li>
-								<li><a href="#">Rules and Regulations</a></li>
-								<li><a href="#">Contact Us</a></li>
+								<li><a href="#facilities">Facilities</a></li>
+								<li><a href="rules.pdf">Rules and Regulations</a></li>
 								<li><button id="login_button">Log In</button></li>
 								<hr/>
 								<li><button id="signup_button" onclick="location.href='register.php';">Join Hostel</button></li>
@@ -92,7 +91,7 @@ if(isset($_SESSION["usn"]))
 					</section>
 
 				<!-- Wrapper -->
-					<section id="wrapper">
+					<section id="facilities">
 
 						<!-- One -->
 							<section id="one" class="wrapper spotlight style1">
@@ -145,22 +144,22 @@ if(isset($_SESSION["usn"]))
 									</p>
 									<section class="features">
 										<article>
-											<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
+											<a href="#" class="image"><img src="images/clinic.ico" alt="" /></a>
 											<h3 class="major">Clinical Facility</h3>
 											<p>A clinic is situated inside the hostel, doctor will be available between 4 PM and 7 PM from Monday to Saturday.</p>
 										</article>
 										<article>
-											<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
+											<a href="#" class="image"><img src="images/counselling.ico" alt="" /></a>
 											<h3 class="major">Professional counseling</h3>
 											<p>Professional counselor will be available at the hostel for career guidance / academic / non-academic related issues.</p>
 										</article>
 										<article>
-											<a href="#" class="image"><img src="images/pic06.jpg" alt="" /></a>
+											<a href="#" class="image"><img src="images/lounge.ico" alt="" /></a>
 											<h3 class="major">Common Multipurpose Lounge</h3>
 											<p>Situated at the cellar area having Library secion, Discussion cubicles, Internet center, Saloon and indoor games.</p>
 										</article>
 										<article>
-											<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
+											<a href="#" class="image"><img src="images/tuck.ico" alt="" /></a>
 											<h3 class="major">Tuck shop and Cloak room</h3>
 											<p>A tuck shop in the hostel mess area and the cloak room facility to keep luggage at the end of academic year when going on vacation.</p>
 										</article>

@@ -54,7 +54,7 @@
 		h2.innerHTML = "These are the students whose grades reduced and also share a common room in year 2";
 		d.appendChild(h2);
 		var tab2 = document.createElement("table");
-		tab2.style.align = "centre";
+		tab2.className = "table table-bordered";
 		for(var i = 0 ; i < reduce.length ; i++)
 		{
 				for(var j = i+1; j < reduce.length ; j++)
