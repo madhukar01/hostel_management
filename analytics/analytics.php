@@ -52,12 +52,6 @@
           </li>
         </ul>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="../counselling_student.php">
-            <i class="fa fa-fw fa-question-circle"></i>
-            <span class="nav-link-text">Counselling</span>
-          </a>
-        </li>
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">

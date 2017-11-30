@@ -313,7 +313,7 @@ else
         <a class="btn btn-primary" id="submit_button6" href="#">Delete Mess</a>
       </form>
       </div>
-
+      <div id="data_table"></div>
       <div id="submit_success" class="alert alert-success">
         <strong>Success!</strong> Data has been successfuly saved.
       </div>

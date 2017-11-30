@@ -40,7 +40,8 @@ function form_reset()
     $("#usnHelp5").html(""); 
     $("#usnHelp6").html("");
     $("#usnHelp7").html(""); 
-    $("#usnHelp8").html("");     
+    $("#usnHelp8").html("");   
+    $("#data_table").html("");  
 };
 
 function disable_buttons()
@@ -75,6 +76,40 @@ function form_show($block)
     $($block).show();
 };
 
+
+function load_table($t)
+{
+    $("#data_table").html("");
+    $.post("../hostel/backend/return_admin_data.php",{type: $t}, function(data){
+        temp = '<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">\
+        <thead>\
+          <tr>\
+          <b>\
+            <th>ID</th>\
+            <th>State</th>\
+            </b>\
+          </tr>\
+        </thead>\
+        <tbody>';
+        if(data.length > 0)
+        {
+             for(i=0; i<data.length; ++i)
+             {
+                 if(data[i] != "")
+                    temp += "<tr><td>"+data[i]+"</td><td>Active</td></tr>";
+             }
+             temp += '</tbody></table>';
+             $("#data_table").html(temp);
+         }  
+        else
+         {
+             temp +="<tr><td>No data available</td></tr>";
+             temp += '</tbody></table>';
+             $("#data_table").html(temp);
+         }
+     });
+};
+
 $("#add_staff_button").click(function(){
     form_show("#add_staff_form");
     $("#card1").css("opacity", "1");
@@ -97,21 +132,25 @@ $("#add_coun_button").click(function(){
 
 $("#delete_staff_button").click(function(){
     form_show("#delete_staff_form");
+    load_table("staff");
     $("#card4").css("opacity", "1");
 });
 
 $("#delete_doctor_button").click(function(){
     form_show("#delete_doctor_form");
+    load_table("doctor");
     $("#card5").css("opacity", "1");
 });
 
 $("#delete_mess_button").click(function(){
     form_show("#delete_mess_form");
+    load_table("mess");
     $("#card6").css("opacity", "1");
 });
 
 $("#delete_coun_button").click(function(){
     form_show("#delete_coun_form");
+    load_table("counsellor");
     $("#card8").css("opacity", "1");
 });
 
